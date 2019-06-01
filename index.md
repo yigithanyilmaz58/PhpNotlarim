@@ -1,4 +1,5 @@
 ```Gri renkli yazılar```
-<!DOCTYPE html>
-
-
+<php
+$test= "yigithan\t\t\tyilmaz";
+echo $test;
+?>
