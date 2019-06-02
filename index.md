@@ -129,6 +129,41 @@ echo $ad; Localhost=Yigithan Yilmaz
 
 <h2>Arttırma ve Azaltma Operatörleri</h2>
   <div>$a++</div>
-    
+  <div>++$a</div>
+  <div>$a--</div>
+  <div>--$a</div>
+  
+  ```
+<?php
+$a = 5; 
+echo **$a;
+echp $a; Localhost=44
+?>
+ ```
+ 
+<h2>Karşılaştırma Operatörleri</h2>
+  <div>Eşittir ==</div>
+  <div>Eşit Değildir !=</div>
+  <div>Büyüktür > </div>
+  <div>Küçüktür < </div>
+  <div>Büyükse yada Eşitse >= </div>
+  <div>Küçükse yada Eşitse <= </div>
+  <div>Denkse === <div>
+  <div>Denk Değilse !== </div>
 
+```
+<?php
+$a = 5;
+$b = 6;
+Localhostumuza gelen değer true(1) yada false(hiçbir şey) olacaktır.Verilen sayı ve operatöre göre değişir.
+echo $a !== $b;
+?>
+```
 
+<h2>Mantıksal Operatörler</h2>
+  <div>&& - AND - Ve</div>
+  <div>|| - OR - Ya da</div> 
+  <div>! - Değilse</div>
+  
+  $a = 5;
+  $b = 5;
