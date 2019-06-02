@@ -127,8 +127,8 @@ $ad .="" . $soyad; // $ad = $ad . $soyad; --->Birleştirerek Atama
 echo $ad; Localhost=Yigithan Yilmaz
 ```
 
-    
-    ```
+<h2>Arttırma ve Azaltma Operatörleri</h2>
+  <div>$a++</div>
     
 
 
