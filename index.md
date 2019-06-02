@@ -1,4 +1,4 @@
-<h1 center>PHP NOTLARIM</h1>
+<h1>Sıfırdan Php ve MySQL Eğitim Notları</h1>
 <div>Bu kod satırlarında hem php kodları hem ise php ile ilgili notlarım yer alacak.</div>
 <div>Phpde değişkenler; </div>
   <div>$ işareti ile tanımlanırlar.</div>
@@ -7,8 +7,14 @@
   <div>Türkçe karakterler içerebilir.</div>
   <div>Büyük-küçük harfe duyarlıdırlar. (case-sensitive)</div>
 <div>Atama Operatörü (=)</div>
-<h2> Başlık Bu </h2>
+<h2>Case Sensitive Özelliği(Büyük-Küçük Harfe Duyarlı)</h2>
 ```
-Selamın aleykm
-```
-aslasşf
+<?php 
+$degisken="Degisken1";
+$Degisken="Degisken2";
+$_degisken="Degisken3";
+echo $degisken;
+?>
+Localhost:Degisken1
+``` 
+<h2>Php'de Veri Türleri</h2>
