@@ -6,7 +6,4 @@
   Türkçe karakterler içerebilir.
   Büyük-küçük harfe duyarlıdırlar. (case-sensitive)
 Atama Operatörü (=)
-```  selamlar
- ##selamlar 
- ```
- asfişlas
+## Selam yavurm 
