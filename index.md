@@ -8,12 +8,7 @@
   <div>Büyük-küçük harfe duyarlıdırlar. (case-sensitive)</div>
 <div>Atama Operatörü (=)</div>
 <h2>Case Sensitive Özelliği(Büyük-Küçük Harfe Duyarlı)</h2>
-```<?php 
-$degisken="Degisken1";
-$Degisken="Degisken2";
-$_degisken="Degisken3";
-echo $degisken;
-?> 
 ```
+<?php
 
-<h2>Php'de Veri Türleri</h2>
+```
