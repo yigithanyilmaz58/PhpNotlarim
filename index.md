@@ -64,7 +64,24 @@ echo yigithan;
 
 <h2>Php'de Sihirli Karakterler</h2>
 <div>Sihirli Karakterler;</div>
-  <div> \t : Tab karakteri yerine geçer.</div>
-  <div> \n : Satır sonu.Bir sonraki satıra geçirir.</div>
-  <div> \\ : Ters bölü işareti yapmak için kullanılır.</div>
-  <div> \$ : D
+<div> \t = Tab karakteri yerine geçer.</div>
+<div> \n = Yeni satır karakteri (new line).</div>
+<div> \\ = karakter bir başka sihirli karaktere denk geldiğinde örneğim “\temel\” gibi bir ifade kullanmak istedik. Bu durumda \t tab karakteri olarak algılanacağından tanımlamamış şu şekilde olmalı “\\temel\”.</div>
+<div> \$ = çift tırnak içerisindeki ifadelerde değişkeleri kullanabiliyoruz. Fakat biz değişkenin değerini almak değilde kendisini görmek istersek “bu bir \$degisken” şeklinde kullanmalıyız.</div>
+<div> \’ = tek tırnak ile tanımladığımız bir ifade içinde tek tırnaklı bir sözcük kullanmamız gerekirse önüne \ işareti eklemek gerekir. Örneğin $degisken = ‘Uğur dedi ki \’merhaba php\’ dedi’ </div>
+<div> \” = çift tırnak içinde bir ifade yazarken çift tırnak kullanmamız gerekirse önünde \ eklememiz gerekir.</div>
+
+```
+<?php
+$test= "yigithan\t\t\t\nyilmaz \\test\ ";
+$ad= "Yigithan";
+//echo "\$ad değişkeni $ad değerine eşittir.";
+echo "Yigithan dedi ki: \"Piyasa benden sorulur\"..";
+?>
+```
+
+<h1>Php'de Operatörler</h1>
+<h2>Aritmetik Operatörler</h2>
+
+
+
