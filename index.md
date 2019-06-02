@@ -77,12 +77,58 @@ $test= "yigithan\t\t\t\nyilmaz \\test\ ";
 $ad= "Yigithan";
 //echo "\$ad değişkeni $ad değerine eşittir.";
 echo "Yigithan dedi ki: \"Piyasa benden sorulur\"..";
-?>
+?> Localhost:Yiğithan dedi ki: "Piyasa benden sorulur"..
 ```
 
 <h1>Php'de Operatörler</h1>
 <h2>Aritmetik Operatörler</h2>
+  <div>Toplama +</div>
+  <div>Çıkarma -</div>
+  <div>Çarpma *</div>
+  <div>Bölme /</div>
+  <div>Mod (Kalan) %</div>
+  
+  ```
+  <?php
+  $a=15;
+  $b=4;
+  //echo $a + $b;
+  //echo $a - $b;
+  //echo $a * $b;
+  //echo $a / $b;
+  //echo $a % $b;
+  ?>
+  ```
+  
+  <h2>Atama Operatörleri</h2>
+    <div>Değer Atama =</div>
+    <div>Arttırarak Değer Atama +=</div>
+    <div>Azaltarak Değer Atama -=</div>
+    <div>Bölerek Değer Atama /=<div>
+    <div>Çarparak Değer Atama *=</div>
+    <div>Modunu Alarak Değer Atama %=</div>
+    <div>Birleştirme Operatörü .</div>
+    <div>Birleştirerek Değer Atama .=</div>
+  
+  ``` 
+ <?php
+// $a  +=5; // $a = $a + 5;
+// $a  -=5; // $a = $a - 5;
+// $a  /=5; // $a = $a / 5; 
+// $a  *=5; // $a = $a * 5; 
+// $a  %=5; // $a = $a % 5;
 
+$ad= "Yigithan";
+$soyad="Yilmaz";
 
+// echo "Yigithan" . "Yilmaz" . 24 . $ad . "yigithan" . $soyad; Localhost= YiğithanYilmaz24YigithanyigithanYilmaz
+
+$ad .="" . $soyad; // $ad = $ad . $soyad; --->Birleştirerek Atama
+echo $ad; Localhost=Yigithan Yilmaz
+```
+
+    
+    ```
+    
 
 
