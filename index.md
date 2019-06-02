@@ -8,7 +8,4 @@
   <div>Büyük-küçük harfe duyarlıdırlar. (case-sensitive)</div>
 <div>Atama Operatörü (=)</div>
 <h2>Case Sensitive Özelliği(Büyük-Küçük Harfe Duyarlı)</h2>
-```
-<?php
-
-```
+```<?php```
