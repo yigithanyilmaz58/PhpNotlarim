@@ -13,7 +13,9 @@
 <?php 
 $degisken="Degisken1";
 $Degisken="Degisken2";
-$_degisken="Degisken3";
-echo $degisken;
+$_degisken="Degisken3"; 
+echo $degisken; 
 ?>
+Localhost:Degisken1
 ```
+<h2>Php'de Veri Türleri</h2>
