@@ -15,6 +15,5 @@ $Degisken="Degisken2";
 $_degisken="Degisken3";
 echo $degisken;
 ?>
-Localhost:Degisken1
-``` 
+Localhost:Degisken1 ```
 <h2>Php'de Veri Türleri</h2>
