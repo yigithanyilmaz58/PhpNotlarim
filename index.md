@@ -9,6 +9,11 @@
 <div>Atama Operatörü (=)</div>
 <h2>Case Sensitive Özelliği(Büyük-Küçük Harfe Duyarlı)</h2>
 
-``` Hay mk ```
+``` <?php 
+$degisken="Degisken1";
+$Degisken="Degisken2";
+$_degisken="Degisken3";
+echo $degisken;
+?> ```
 
 saşsaf
