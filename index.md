@@ -6,9 +6,7 @@
   Türkçe karakterler içerebilir.
   Büyük-küçük harfe duyarlıdırlar. (case-sensitive)
 Atama Operatörü (=)
-```<?php 
-$degisken= "yiğithan";
-$prototurk= "yılmaz";
-echo $degisken;     
-echo $prototurk;
-?>
+```  selamlar
+ ##selamlar 
+ ```
+ asfişlas
