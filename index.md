@@ -9,7 +9,6 @@ Atama Operatörü (=)
 ```<?php 
 $degisken= "yiğithan";
 $prototurk= "yılmaz";
-echo $degisken;     ##Localhostumuz yiğithanyılmaz diye çıkacaktır.
+echo $degisken;     
 echo $prototurk;
-?> 
-  
+?>
