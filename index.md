@@ -85,3 +85,4 @@ echo "Yigithan dedi ki: \"Piyasa benden sorulur\"..";
 
 
 
+
