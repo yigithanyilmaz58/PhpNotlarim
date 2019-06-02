@@ -1,5 +1,5 @@
-Bu kod satırlarında hem php kodları hem ise php ile ilgili notlarım yer alacak.
-Phpde değişkenler;  
+<div>Bu kod satırlarında hem php kodları hem ise php ile ilgili notlarım yer alacak.</div>
+<div>Phpde değişkenler; </div>
   $ işareti ile tanımlanırlar.
   Harf veya _ karakteri ile başlar.
   Sayı ile başlayamazlar.
@@ -9,7 +9,7 @@ Atama Operatörü (=)
 ```<?php 
 $degisken= "yiğithan";
 $prototurk= "yılmaz";
-echo $degisken;     <h1>Localhostumuz yiğithanyılmaz diye çıkacaktır.</h1>
+echo $degisken;     ##Localhostumuz yiğithanyılmaz diye çıkacaktır.
 echo $prototurk;
 ?> 
   
