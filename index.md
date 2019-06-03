@@ -165,5 +165,79 @@ echo $a !== $b;
   <div>|| - OR - Ya da</div> 
   <div>! - Değilse</div>
   
-  $a = 5;
-  $b = 5;
+```
+<?php
+$a = 5;
+$b = 5;
+
+//echo ($a == $b) && ($a + $b == 9); Burada ilk değerimiz doğru ama ikinci değer yanlış çıktığı için localhost false .
+//echo ($a != $b) || ($a + $b == 14) || ($â -$b == 0); Burada yada kullandık biri hatalı ama diğeri doğru lhost true .
+
+echo !($a != $b); Burda eşit değilse dedik üstüne bi de değilse gelirse yeniden eşittir oldu.Lhost:True.
+?>
+```
+
+<h1>Php'de Koşullu İfadeler</h1>
+<h2>If-Else İfadesi</h2>
+ 
+ ```
+ <?php
+if ($a > $b) {
+    echo "a büyüktür b";
+} elseif ($a == $b) {
+    echo "a eşittir b";
+} else {
+    echo "a küçüktür b";
+}
+?>
+<?php
+2.Örnek
+if ($a == 4) {
+    echo "a değişkeninin değeri 4'tür";
+} elseif ($a == 6) {
+    echo "a değişkeninin değeri 6'dır";
+} else {
+    echo "Hiçbir koşul yerine getirilmedi.";
+}
+?>
+```
+
+<h2>Switch-Case İfadesi</h2>
+
+```
+<?php
+$a =5;
+Switch ($a){
+  case 5:
+    echo 'a 5'e eşit';
+  break;
+  case 6:
+    echo 'a 6'ya eşit';
+  break;
+  case $a % 4 ==3:
+    echo '7'yi 4'e bölünce kalan 3'tür';
+  break;
+  default:
+    echo'Hiçbir şeye eşit değil';
+  break;  
+?>
+```
+
+<h2>Ternary (Üçlü Operatör Kullanımı)</h2>
+  <div>Kısaca anlatayım.İf'i tek satır içinde nası kullanırız.İşte yardımımıza ternany yetişiyor.</div>
+  
+  ```
+<?php
+// Uzun Hali //
+$a = 5;
+if ($a == 5){
+  echo "a 5'e eşit";
+} else { 
+  echo "a 5'e eşit değil";
+}
+// Ternany Sayesinde Kısa Kullanılmış Hali // 
+echo $a == 5 ? "a 5'e eşit" : "a 5'e eşit değil";
+?>
+```
+
+<h2>If-Else ve Switch-Case İçin Alternatif Sözdizimleri</h2>
