@@ -437,5 +437,55 @@ do{
 ```
 
 <h1>Php'de Fonksiyon Kullanımı</h2>
-<div>Neden Fonksiyon Kullanırız ?</div>
+<div>Neden Fonksiyon Kullanıyoruz ?</div>
 <div>Çünkü fonksiyonları kullandığımızda ve bir değişiklik yaptığımızda değiştirmesi ve uygulaması daha kolay olur.</div>
+<div>Fonksiyonlar için function kodumuzu kullanıyoruz</div>
+
+```
+<?php
+
+  function test()
+  {
+    return "test"; Return değerimi geriye döndürür.
+  } 
+  
+  $a = test(); Bunu a değişkenine eşitlersem bu a değişkeninin değeri fonksiyondan dönen değere eşitlenecek.
+  //echo $a;
+  Fonksiyonlar parametre alabilirler.
+  function topla($sayi1, $sayi2)
+  {
+    return ($sayi1=2 + $sayi2=10);
+    
+  $toplam = topla(5); 
+  İkinci parametreyi vermek zorundayız.Ama üstteki gibi değer atarsak gerek kalmaz.1.sayımız 2 değil 5 olur çünkü altta 5 verdik.
+  echo $toplam; lhost:17 
+  
+  global
+  $GLOBALS
+  $ad = 'Yigithan';
+  
+  function adsoyad($soyad)
+  {
+    global $ad; Artık kullanabiliriz.Lhost: Yigithan Yilmaz 2.yolu returnün içinde aşşağıda.
+    return $GLOBALS['ad']   . ' '. $soyad;
+    return $ad .  . ' '. $soyad;
+    Böyle bir şekilde kullanamayız.Çünkü bunu global  olarak değişkenin içidne kullanmamız gerekiyor.
+  }
+  echo adsoyad('Yilmaz'); 
+  
+  $yazi = "yigithan yilmaz yigithan yilmaz";
+  //echo substr($yazi, 0, 10). '...'; Bu yazıda 10.harfe basamağa kadar gelip 3 nokta eklemek demek.
+  
+  function kisalt($str, $limit=10)
+  {
+    $karakterSayisi = strlen($str);
+    if ($karakterSayisi > $limit){ Burda karakter sayısını aldık.
+      $str = substr($str, 0, $limit) . '..'; 
+      Sonra karakter sayısı 5'den yani limit değerinden büyük ise demek oluyor ki benim yazım uzun kısaltmam lazım
+    }
+    return $str;
+    echo kisalt($yazi, 5); Lhost :yigit.. Eğer yazımız beş karakterli olsaydı sadece yigit yazacaktı.
+?>
+```
+
+<h2>Php'de Anonim Fonksiyonlar</h2>
