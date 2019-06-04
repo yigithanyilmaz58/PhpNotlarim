@@ -241,3 +241,200 @@ echo $a == 5 ? "a 5'e eşit" : "a 5'e eşit değil";
 ```
 
 <h2>If-Else ve Switch-Case İçin Alternatif Sözdizimleri</h2>
+
+```
+Switch-Case İçin Olanı
+$a = 5;
+switch ($a):
+  case 5:
+    echo '1';
+break;
+case 6:
+  echo '2';
+break;
+default:
+  echo '3';
+break;
+endwitch;
+
+If-Else İçin Olanı
+if ($a == 5);
+  echo '1';
+elseif ($a == 6):
+else:
+  echo '3';
+endif;
+Farkı anlamışsınızdır umarım.
+```
+
+<h1>Php'de Diziler</h2>
+<h2>Php'de Dizi Oluşturmak</h2>
+
+```
+<?php
+$ad= "Yigithan";
+$soyad = "Yilmaz";
+$meslek = "Geliştirici";
+$yas = 16;
+// Dizi Tanımlama
+  1- array()
+  2- []
+$kimlik = array (
+ 'ad' => "Yigithan",
+ 'soyad' => "Yilmaz",
+  'meslek' => "Geliştirici",
+  'yas' => 24
+Eğer üsttekilere ad atamazsak direkt php 0,1,2,3 değerlerini atar.
+);  
+//echo $kimlik; Der isek olmaz çünkü ifademiz bir array.
+//Dizi İçindeki Elemanlara Erişmek
+  //echo $kimlik['meslek']
+    -print_r($kimlik);
+Dizi Tanımlamanın 2.Yolu
+$kimlik2 = [
+  'ad' => "yigithan",
+  'soyad' => "yilmaz",
+  'meslek' => "geliştirici",
+];
+?>
+Php'de iki farklı dizi oluşturmayı gösterdim.Hadi gelin bir sonraki derse geçelim.
+```
+
+<h2>Php'de İç İçe Dizi Oluşturmak</h2>
+
+```
+  //Siteler
+      E-Ticaret
+        Sahibinden
+        N11
+        HepsiBurada
+      Eğitim
+        Udemy
+<?php
+$kategoriler = [
+  'siteler' => 'siteler'
+      'e-ticaret' => [
+        'sahibinden',
+        'n11',
+        'hepsiburada',
+      ],
+      'egitim' => [
+        'udemy',
+        'prototurk',
+      ]  
+];
+echo $kategoriler['siteler'][e-ticaret][2]; Lhost:hepsiburada
+print_r($kategoriler);
+?>
+```
+
+<h2>Php'de Sabit Değişkenlerde Dizilerin Kullanımı</h2>
+
+```
+<?php
+define('UYE',[
+  'ad' => 'Yigithan',
+  'soyad' => 'Yilmaz',
+  'meslek' => 'Geliştirici',
+  'yas' => 24,
+  'sporlar' => [
+    'jet kune do',
+    'bisiklet sürmek'
+
+]);
+//define('UYE',array());
+echo UYE['sporlar'][1]; Lhost:Bisiklet sürmek.
+Bunlarda anlaşılmayacak bir şey yok zaten.Diğer derse geçelim.
+?>
+```
+
+<h1>Php'de Döngüler</h1>
+<h2>For Döngüsü</h2>
+
+```
+<?php
+for ($i = 1; $i <= 10; $i++){
+  echo $i . '<br>';
+}
+for($i = 10; $i > 0; $i--={
+  echo $i . 'br';
+}
+
+$arr = [
+  'udemy',
+  'prototurk',
+  '93academy',
+  'yigithan.com',
+];
+
+for ($i = 0; $i <= (count($arr)); $i++){
+  echo $arr[$i] . 'br';
+    
+for ($i = 0; $i <= (count($arr)); $i--){
+echo $arr[$i] . 'br';
+
+for ($i = 1; $i <=10; $i++){
+  echo $i . 'br';
+  
+for ($i = 1; $i <=10; $i++):
+  if ($i == 3) continue;
+  echo $i . 'br';
+  if ($i == 6) break;
+endfor; Lhost:12456  
+?>
+```
+
+<h2>Foreach Döngüsü</h2>
+
+```
+<?php
+///Foreach (ARRAY as KEY => VALUE){
+}
+
+$sayilar = [1,2,3,4,5,6,7,8,9,10];
+
+foreach($sayilar as $sayi){
+  echo $sayi . 'br';
+} lhost 1den 9a kadardır
+
+ $uyeDetay = [
+  'ad' => 'Yigithan',
+  'soyad' => 'Yilmaz',
+  'yas' => 24
+];
+
+foreach($uyeDetay as $key => $val){
+  echo $key . ':' . $val . 'br';
+} key dediklerimiz ad soyad yas val karşısındakiler
+  ?>
+  ```
+  
+  <h2>While Döngüsü</h2>
+  ```
+  <?php
+    while(KOŞUL TRUE){} 
+$i = 1;    
+  
+  while ($i >0){
+    echo $i . 'br';
+    $i--; Bu komutu koymasaydık while döngümüz sonsuza kadar devam edecekti.
+  endwhile; 
+?>
+```
+
+<h2>Do-While Döngüsü</h2>
+<div>Do-While döngüsünün whiledan farkı ilk do'da 1 defa çalışır.Sonra döngü içindeki koşul sağlanırsa tekrar çalışır.</div>
+```
+<?php
+$a = 6;
+
+do{
+  echo $a . 'br';
+  $a++;
+} while($a <= 5);
+?>
+```
+
+<h1>Php'de Fonksiyon Kullanımı</h2>
+<div>Neden Fonksiyon Kullanırız ?</div>
+<div>Çünkü fonksiyonları kullandığımızda ve bir değişiklik yaptığımızda değiştirmesi ve uygulaması daha kolay olur.</div>
