@@ -424,10 +424,10 @@ $i = 1;
 
 <h2>Do-While Döngüsü</h2>
 <div>Do-While döngüsünün whiledan farkı ilk do'da 1 defa çalışır.Sonra döngü içindeki koşul sağlanırsa tekrar çalışır.</div>
+
 ```
 <?php
 $a = 6;
-
 do{
   echo $a . 'br';
   $a++;
