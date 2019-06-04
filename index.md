@@ -410,7 +410,8 @@ foreach($uyeDetay as $key => $val){
   ```
   
   <h2>While Döngüsü</h2>
-  ```
+
+```
   <?php
     while(KOŞUL TRUE){} 
 $i = 1;    
