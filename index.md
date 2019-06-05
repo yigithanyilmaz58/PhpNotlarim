@@ -672,3 +672,115 @@ Buraya sporun altındaki kosma değerini direkt bir şekilde alamayız o yüzden
 ```
 
 <h2>Fonksiyon Varlık Kontrolü (-function_exists()-)</h2>
+<div>Bunu neden kullanıyoruz ?</div>
+<div>Bu fonksiyon var mı ? Yok mu ?</div>
+<div>Çünkü her fonksiyon,internette araştırıp bulabileceğiniz her fonksiyonu kullanamayabilirsiniz.</div>
+<div>Çünkü bazı paketler PHP'ye sonradan yüklenir.</div>
+
+```
+<?php
+
+function test(){
+  return 'test';
+}
+
+if (function_exists('test')){
+  echo 'test fonksiyonu vardır';
+} else {
+  echo 'test fonksiyonu yoktur';
+}
+mb_substr --> İleriki konularda anlatılacaktır.Şimdilik üsttekileri bilseniz yeter.
+?>
+```
+
+<h2>PHP'de Üreteç Fonksiyonlar (Yield)</h2>
+<div>Range fonksiyonunda iki değer verirsiniz.Başlangıç ve limit değeri.Örnek --> range(0, 10000)</div>
+<div>Yani kısaca yield returne çok benziyor ama farkı değeri döndürürken işlemi sonlandırmıyor, işleme devam ediyor.</div>
+
+```
+<?php
+  function say($baslangic, $limit)
+  {
+    $arr = []; #
+    for ($i = $baslangic; $i <= $limit; $i++)
+    {
+      $arr[] = $i; #
+    }
+    return $arr; #
+  }
+  yield kullanırken array kullanmamıza gerek yok direkt for kodumuzun altına yield $i; der isek işlemimiz yine işler.
+  $sayilar = say(0, 10000);
+  print_r($sayilar); der isek --> Generator object oldu.print_r yerine yazılacak kod hemen altta.
+  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+  foreach ( $sayilar as $sayi ){
+    echo $sayi. 'br';
+}
+memory_get_usage() ---> Ne kadar bellek yemiştir onu gösterir.Byteı mb çevirmek için altta fonksiyon kullanacağız.1mb=1048576byte
+function byteTomB($byte)
+{
+  return number_format($byte / 1048576, 2); -->Number format mesela (değer uzun) diyeceğin 32.33 mb diyerek kısaltmamızı sağladı.
+}
+$sayilar = range (0, 1000000);
+
+echo byteToMB (memory_get_usage()) . ' MB bellek kullanıldı';
+?>
+```
+<h2>Fonksiyonda Static Değişken Kullanımı</h2>
+<div></div>
+
+```
+<?php
+
+function say(){
+  static $sayi =1;
+  echo $sayi . '<br>';
+  $sayi++;
+}
+
+say();
+say();
+say();
+say();
+say();
+say();
+Staticli lhost : 1,2,3,4,5,6 Staticsiz lhost:1,1,1,1,1,1
+
+function yukle($deger){
+  static $yuklenenler = [];
+  $yuklenenler[] = $deger;
+  return $yuklenenler;
+}
+
+yukle('test.php');
+yukle('a.php');
+$yuklenenler = yukle('b.php');
+
+print_r($yuklenenler);  Staticsiz yapsaydık sadece b.php gözükecekti.Static kullandığımızda ise hepsini yazdırdı.
+?>
+```
+
+<h2>PHP7 Parametre ve Return Değişken Türü Dayatması</h2>
+<div>Biliyorsunuz ki fonksiyonlarda parametre gönderiyoruz.Bu parametlerin veri tiplerini belirleyebiliyoruz.</div>
+<div>Mesela sadece integer gelsin,sadece string gelsin diye ve return ederken sadece array etsin diyebiliyoruz.</div>
+
+```
+<?php
+
+declare(strict_types = 1); Sadece integerı kabul edecek .
+
+function topla(int $sayi1,int $sayi2) : string | Der isek bu sefer de değişkenleri string kabul edecek. 
+{
+  return $sayi1 + $sayi2;
+}
+echo topla("1",3); 
+1 değerimiz string olduğu için fatal error aldık.
+------------
+function arr(array $arr): string
+{
+  return $arr;
+}
+print_r(arr(["test","test2"])); Bunda da fatal error alıyoruz çünkü array ifadesini kullandık ama bizden string istedi.
+?>
+```
+
+<h1>PHP'de Dizi Fonksiyonları-1</h1>
