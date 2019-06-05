@@ -552,4 +552,57 @@ $test2 = function() use ($test){ --->Test fonksiyonunu diğer fonksiyonumuzun i�
 echo $test2();
 ?>
 ```
+<h2>Fonksiyonda Sınırsız Parametre Göndermek</h2>
+<div>Bir fonksiyonda kaç tane parametre geleceğini bilmiyor olabiliriz.</div>
+<div>Bu fonksiyonla kaç tane argüman , kaç tane parametre gelmiş onu buluyoruz.--> func_num_args()</div>
+<div>Bu fonksiyonla parametrelerin listesini dize olarak indirebiliyoruz. --> func_get_args()</div>
+<div>Bu fonksiyona da bir index numarası vererek o fonksiyonun,parametrenin değerine ulaşırız.--> func_get_arg()</div>
 
+```
+<?php
+function test()
+{
+  echo func_num_args(); Lhost : 4 Parametre sayısını verdi.
+  print_r(func_get_args()); 0 - Yigithan 1- Yilmaz 2 - Sivas 3- Cuguli tane parametre şeklinde gösterdi.
+  ------
+  echo func_get_arg(2); Lhost : Sivas çıkar.
+}
+test ('Yigithan', 'Yilmaz' ,'Sivas' ,'Cuguli');
+?>
+```
+
+<h2>Recursive Fonksiyonlar(Kendi Kendini Çağıran Fonksiyonlar</h2>
+
+```
+<?php
+
+  function say($sayi)
+  {
+    echo $sayi;
+    if ($sayi <10){ 
+      say($sayi +1);
+    }  
+}
+say(1);
+-----
+$kategoriler = [
+  [
+    'id' => 1;
+    'parent' => 0,
+    'ad'=> 'Dersler'
+  ],
+  [
+    'id' => 3,
+    'parent' => 0,
+    'ad' => 'Blog'
+  ]
+];
+
+function kategoriListele($kategoriler)
+{
+  foreach($kategoriler as $kategori){
+    echo $kategori['ad'];
+  } 
+}
+?>
+```
