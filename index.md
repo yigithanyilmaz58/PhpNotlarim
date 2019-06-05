@@ -531,4 +531,25 @@ $arr = array_map(function($isim)
 }, $arr);
 print_r($arr);
 ------------
+Anonim fonksiyon içinde global kullanmamıza gerek yok.Onun yerine use kullanıyoruz.Hemen alta örneğini yapalım.
+$soyad = 'Yilmaz';
+
+$arr = ['Tayfun','Jhonny','Micheal','Keirann'];
+
+$arr = array_map(function($isim) use($soyad){
+  return $isim . ' ' . $soyad;
+}i $arr);
+print_r($arr);
+-----------
+$test = function($par) 
+{
+  return 'test' . $par;
+}
+
+$test2 = function() use ($test){ --->Test fonksiyonunu diğer fonksiyonumuzun içerisinde kullanıyoruz.
+  return 'test2' . $test('test3');
+};
+echo $test2();
 ?>
+```
+
