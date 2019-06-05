@@ -489,3 +489,46 @@ do{
 ```
 
 <h2>Php'de Anonim Fonksiyonlar</h2>
+<div>Normal fonksiyonlarda function test(){} deriz anonim fonksiyon ise function(){} diye yazılır.Farkı altta göreceksiniz</div>
+
+```
+<?php
+
+function test()
+{
+  return 'test';
+}
+echo test();
+↓ Anonim Fonksiyon Örneği ↓
+$test = function($par) --> Burda bir değişkeni fonksiyon gibi kullanabiliyoruz.
+{
+  return 'test' . $par;
+};
+//echo $test ('yigithan');
+
+$arr = [ 
+  function(){
+    return '1. fonksiyon';
+  },  
+  function(){
+    return '2. fonksiyon';
+  },  
+  function(){
+    return '3. fonksiyon';
+  }
+];
+echo $arr[rand(0.2)]();
+
+function filtrele($isim)
+{
+  return $isim . 'Erbilen';
+}  
+$arr = ['Tayfun','Jhonny','Micheal','Keirann'];
+
+$arr = array_map(function($isim)
+{
+  return $isim . 'Erbilen';
+}, $arr);
+print_r($arr);
+------------
+?>
