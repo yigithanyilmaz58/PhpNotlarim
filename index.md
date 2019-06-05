@@ -585,6 +585,9 @@ test ('Yigithan', 'Yilmaz' ,'Sivas' ,'Cuguli');
 }
 say(1);
 -----
+id dediğimiz şey mesela derslerin idsi 1 biz 1'i parent olarak kullandığımız yer onun alt başlığı olacak.Mantık.
+parent ise üst nesne demek yani en baştaki ana kategori demek.
+
 $kategoriler = [
   [
     'id' => 1;
@@ -592,17 +595,80 @@ $kategoriler = [
     'ad'=> 'Dersler'
   ],
   [
-    'id' => 3,
+    'id' => 2,
     'parent' => 0,
-    'ad' => 'Blog'
+    'ad' => 'Güncel'
   ]
+  [
+    'id' => 3;
+    'parent' => 0,
+    'ad'=> 'Blog'
+  ], 
+  [
+    'id' => 4;
+    'parent' => 1,
+    'ad'=> 'PHP Dersleri'
+  ],
+  [
+    'id' => 5;
+    'parent' => 4,
+    'ad'=> 'PHP Nedir?'
+  ],
+  [
+    'id' => 6;
+    'parent' => 1,
+    'ad'=> 'CSS Dersleri'
+  ],
 ];
 
-function kategoriListele($kategoriler)
+function kategoriListele($kategorileri $parent = 0)
 {
+  echo '<ul>';
   foreach($kategoriler as $kategori){
-    echo $kategori['ad'];
-  } 
+    if ($kategori['parent'] == $parent){ Burda dedik ki parentı sıfır olanları lhostta görelim .
+      echo '<li>' . $kategori['ad']';
+      echo kategoriListele($kategoriler, $kategori['id']);
+      echo '<li>';
+    } 
+  }
 }
+kategoriListele($kategoriler);
+
+Eğer html değeri şeklinde olacak olsaydı başa bunlar gelecekti.
+$html = '';
+Echoların tamamına $html .= değerini verecektik.
+Sona return $html diyecektik ve hemen alttaki kategorilistelenin önüne echo koyacaktık.Bu kadar.
+-------
+$arr = [
+  'ad' => 'yigithan',
+  'soyad' => 'yilmaz',
+  'sporlar' => [
+    'yuzme' => 'evet',
+    'kosma' => 'evet',
+    'savunma_sporlari' => [
+      'karate' => 'evet',
+      'kick-boks' => 'hayır'
+    ]            
+  ]  
+];
+  function dizide_bul($dizi, $anahtar)
+  {
+    foreach ($dizi as $key => $val)
+    {
+      if ($key == $anahtar){
+        return $val;
+      } 
+      if (is_array($val)){ --> sporlar değeri array olduğu için array olarak tanıttık.
+      $sonuc = dizide_bul($val, $anahtar);
+      if ($sonuc){
+        return $sonuc;
+    }
+    return false;
+  }
+echo dizide_bul($arr, 'kosma'); Lhost: evet
+Mesela savunma sporlarını üstteki kosmaya yazarsek olmaz print r ile yazmalıyız çünkü o bir dizi.
+Buraya sporun altındaki kosma değerini direkt bir şekilde alamayız o yüzden hemen 3 satır üstteki kod bize yardımcı olacak.
 ?>
 ```
+
+<h2>Fonksiyon Varlık Kontrolü (-function_exists()-)</h2>
