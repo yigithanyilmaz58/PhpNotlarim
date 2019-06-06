@@ -785,19 +785,30 @@ print_r(arr(["test","test2"])); Bunda da fatal error alıyoruz çünkü array if
 <h1>PHP'de Dizi Fonksiyonları</h1>
 
 <h2>PHP'de Dizi Fonksiyonları-1</h2>
+
 <div>Kullanacağımız fonksiyonları en baştan alt alta yazalım.</div>
 
 ```
 print_r()→Bir dizinin yada bir objenin okunabilir (insancıl)şekilde yapısın gösterir.
+
 var_dump()→print_r'ın daha detaylı şeklidir.
+
 explode()→Belli bir karakterle bir ifadeyi parçalayıp bir dize haline getirir.
+
 implode()→Bir diziyi istediğimiz bir karakterle birleştirip string ifadeye çevirmemizi sağlar.Explodeun tam tersi.
+
 count()→Count ise bir dizinin kaç tane elemanı bulunduğunu bulmamızı sağlıyor.
+
 is_array()→Bir kontrol fonksiyonudur.İçerisine giren değişkenin dizi mi değil mi olduğunu kontrol etmemizi sağlar.
+
 shuffle()→Diziyi karıştırarak tekrardan her bastığımızda farklı şekilde bastırmasını sağlıyor.
+
 array_combine()→İki farklı diziyi anahtar değer olarak birleştirmek için kullanılır.
+
 array_count_values()→Bir dizide tekrarlanan elemanların kaç kez tekrarlandığını bulmak için kullanılır.
+
 array_flip()→Anahtarlar ile değerlerin yerlerini değiştiriyor.Yani anahtar değer,değer anahtar oluyor.
+
 array_key_exists()→Dizi içinde belirlediğimiz anahtarın olup olmadığını konrol etmek için kullanılır.
 ------------------
 Var dump print r
@@ -910,4 +921,21 @@ if (array_key_exists('c', $arr)){
 
 <h2>PHP'de Dizi Fonksiyonları-2</h2>
 
+<div>Kullanacağımız fonksiyonları en baştan alt alta yazalım.</div>
+
 ```
+array_
+
+
+array
+array
+array
+array
+array
+array
+array
+array
+array
+array
+array
+array
