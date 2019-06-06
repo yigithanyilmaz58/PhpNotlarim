@@ -924,9 +924,9 @@ if (array_key_exists('c', $arr)){
 <div>Kullanacağımız fonksiyonları en baştan alt alta yazalım.</div>
 
 ```
-array_map()
+array_map()→→
 
-array_filter()
+array_filter()→
 
 array_merge()
 
