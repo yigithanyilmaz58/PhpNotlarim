@@ -924,18 +924,38 @@ if (array_key_exists('c', $arr)){
 <div>Kullanacağımız fonksiyonları en baştan alt alta yazalım.</div>
 
 ```
-array_
+array_map()
 
+array_filter()
 
-array
-array
-array
-array
-array
-array
-array
-array
-array
-array
-array
-array
+array_merge()
+
+array_rand()
+
+array_reverse()
+
+array_search()
+
+in_array()
+
+array_shift()
+
+array_pop()
+
+array_slice()
+
+array_sum()
+
+array_product()
+
+array_unique()
+-------------
+array_map()
+-------------
+
+$arr = [1,2,3,4,5];
+$arr2 = array_map()
+
+Kalanını sonra yapcam uykum geldi
+```
+
