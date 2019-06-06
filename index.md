@@ -924,38 +924,38 @@ if (array_key_exists('c', $arr)){
 <div>Kullanacağımız fonksiyonları en baştan alt alta yazalım.</div>
 
 ```
-array_map()→→
+array_map()→Dizi içersindeki her elemanın değerini alır ve üzerinde bir oynama yaparak geriye döndürür.
 
 array_filter()→
 
-array_merge()
+array_merge()→
 
-array_rand()
+array_rand()→
 
-array_reverse()
+array_reverse()→
 
-array_search()
+array_search()→
 
-in_array()
+in_array()→
 
-array_shift()
+array_shift()→
 
-array_pop()
+array_pop()→
 
-array_slice()
+array_slice()→
 
-array_sum()
+array_sum()→
 
-array_product()
+array_product()→
 
-array_unique()
--------------
-array_map()
--------------
+array_unique()→
+-------------------------
+array_map() manipülasyon
+-------------------------
 
 $arr = [1,2,3,4,5];
 $arr2 = array_map()
 
-Kalanını sonra yapcam uykum geldi
+
 ```
 
