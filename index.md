@@ -782,5 +782,132 @@ function arr(array $arr): string
 print_r(arr(["test","test2"])); Bunda da fatal error alıyoruz çünkü array ifadesini kullandık ama bizden string istedi.
 ?>
 ```
+<h1>PHP'de Dizi Fonksiyonları</h1>
 
-<h1>PHP'de Dizi Fonksiyonları-1</h1>
+<h2>PHP'de Dizi Fonksiyonları-1</h2>
+<div>Kullanacağımız fonksiyonları en baştan alt alta yazalım.</div>
+
+```
+print_r()→Bir dizinin yada bir objenin okunabilir (insancıl)şekilde yapısın gösterir.
+var_dump()→print_r'ın daha detaylı şeklidir.
+explode()→Belli bir karakterle bir ifadeyi parçalayıp bir dize haline getirir.
+implode()→Bir diziyi istediğimiz bir karakterle birleştirip string ifadeye çevirmemizi sağlar.Explodeun tam tersi.
+count()→Count ise bir dizinin kaç tane elemanı bulunduğunu bulmamızı sağlıyor.
+is_array()→Bir kontrol fonksiyonudur.İçerisine giren değişkenin dizi mi değil mi olduğunu kontrol etmemizi sağlar.
+shuffle()→Diziyi karıştırarak tekrardan her bastığımızda farklı şekilde bastırmasını sağlıyor.
+array_combine()→İki farklı diziyi anahtar değer olarak birleştirmek için kullanılır.
+array_count_values()→Bir dizide tekrarlanan elemanların kaç kez tekrarlandığını bulmak için kullanılır.
+array_flip()→Anahtarlar ile değerlerin yerlerini değiştiriyor.Yani anahtar değer,değer anahtar oluyor.
+array_key_exists()→Dizi içinde belirlediğimiz anahtarın olup olmadığını konrol etmek için kullanılır.
+------------------
+Var dump print r
+------------------
+<?php
+
+$arr = [
+  'ad' => 'yigithan',
+  'soyad' => 'yilmaz',
+  'yas' => 24
+];
+//print_r($arr);
+var_dump($arr=;
+------------------
+explode()parçalar
+------------------
+$test = 'Yigithan,yilmaz,sivas';
+$arr = explode(',', $test);
+
+print_r($arr); Lhost : 0-Yigithan 1 -yilmaz 2- sivas
+--------------------
+implode()birleştirir
+--------------------
+$test = 'Yigithan,yilmaz,sivas';
+$arr = explode(',', $test);
+$string = implode('|', $arr);
+echo $string; Lhost: Yigithan|yilmaz|sivas
+------------------
+count()kaç eleman
+------------------
+echo count($arr); Lhost :3 üstteki koda göre devam ediyoruz.
+------------------
+is_array()if else
+------------------
+if(is_array($arr)){
+    echo 'Bu bir dizidir';
+} else {
+    echo 'Bu bir dizi değildir!';
+}    Lhost : Bu bir dizidir.
+------------------
+shuffle()karıştır
+------------------
+$arr = [1,2,3,4,5,6,7,8,9,10];
+shuffle($arr);
+print_r($arr); Lhost: Her bastığımızda random değer geliyor.
+--------------------------------------------
+array_combine() 2 farklı anahtar birleştirme
+--------------------------------------------
+$keys = ['ad', 'soyad];
+$values = ['yigithan', 'yilmaz'];
+$arr = array_combine($keys, $values);
+print_r($arr); Lhost ad => yigithan soyad => yilmaz
+--------------------------------
+array_count_values()  kaç tekrar
+--------------------------------
+$arr = ['yigithan','yilmaz','udemy','yigithan','udemy'];
+$arr2 = array_count_values($arr);
+print_r($arr2); Lhost : yigithan  => 2 yilmaz  => 1 udemy  => 2
+-------------------------
+array_flip() yer değiştir
+-------------------------
+$arr = [
+  'ad' => 'yigithan',
+  'soyad' => 'yilmaz',
+  'yas' => 16
+];
+$arr2 = array_flip($arr);
+print_r($arr2); Lhost : yigithan => ad yilmaz => soyad 16 => yas
+---------------------------------------------------------
+array_key_exists() anahtarın olup olmadığını kontrol etme
+---------------------------------------------------------
+$arr = [
+  'ad' => 'Yigithan' 
+    'soyad => [
+      'b' => [
+        'c'=> [
+          'd' => 'e'
+        ]
+      ]
+    ]
+    
+];
+if (array_key_exists('ad', $arr)){
+  echo 'ad anahtarı var!';
+} else {
+  echo 'ad anahtarı yok.';
+} İç çe fonksiyonlarda bu fonksiyon işimize yaramaz çünkü hep aynı döndürür.O yüzden kendi fonksiyonumuzu oluşturacağız.
+--------------
+function _array_key_exists($cur_key, $arr){
+  foreach($arr as $key => $val){
+    if ($key == $cur_key){
+      return true;
+    } 
+    else{
+      return true;
+      }
+    if (is_array($val)){
+      return _array_key_exists($cur_key, $val);
+    }
+  }   
+  return false;
+}
+    
+if (array_key_exists('c', $arr)){
+  echo 'c anahtarı var!';
+} else {
+  echo 'c anahtarı yok.';
+?>
+```
+
+<h2>PHP'de Dizi Fonksiyonları-2</h2>
+
+```
