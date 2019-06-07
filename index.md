@@ -1271,11 +1271,11 @@ ltrim()Soldaki boşlukları siler.
 
 rtrim()Sağdaki boşlukları siler. 
 
-substr()
+substr()Karakterlerimizi bölmer ister isek bunu kullanıyoruz.
 
-str_replace()
+str_replace()İfadenin içerisindekiler değiştirmeyi sağlar.
 
-str_repeat()
+str_repeat()Bir karakteri tekrar etmemizi sağlar.
 
 --------------
 
@@ -1305,5 +1305,13 @@ $str strtolower($str);
 $str = "yigithan \t yilmaz \₺";
 echo trim($str,'-'); örnek b
 ---------------------------
-echosubstr($str, 3, 7,);
+str2 = "yigit yilmaz";
+echosubstr($str, 2, 6,);g harfi yani 3. harften başlayıp yilmazın i sine kadar yazdıracak.
+---------------
+$str3 = 'yigithan yilmaz', 'jhonny yilmaz';
+echo str_replace('yilmaz' , 'sins' , $str3); yilmazlar sins olarak değişecek.
+----------------------------
+echo str_repeat('*', 10); Tekrar ettirmemizi sağlar 10 tane yıldız yazdırdık.
+```
 
+<h2>prin
