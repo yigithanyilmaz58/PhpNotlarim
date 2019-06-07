@@ -1,4 +1,3 @@
-<span>-<img src="ben.gif" class="img-fluid" alt="">-</span>
 <h1>Sıfırdan Php ve MySQL Eğitim Notları</h1>
 <div>Bu kod satırlarında hem php kodları hem ise php ile ilgili notlarım yer alacak.</div>
 <div>Phpde değişkenler; </div>
