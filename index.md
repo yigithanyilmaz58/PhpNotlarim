@@ -1098,5 +1098,87 @@ print_r($arr2); lhost tayfun erbilen udemy
 ```
 <h2>PHP'de Dizi Fonksiyonları -3</h2>
 
+<div>Kullanacağımız fonksiyonları en baştan alt alta yazalım.</div>
 
+```
+array_values()→Bir dizideki değerleri diğer diziye aktarır.
 
+array_push()→Dizinin sonuna yeni bir eleman eklemek için kullanılır.
+
+array_unshift()→Dizinin başına yeni bir eleman eklemek için kullanılır.
+
+array_keys()→Dizinin anahtarlarını istemek için kullanılır.
+
+current()→
+
+end()→
+
+next()→
+
+prev()→
+
+reset()→
+
+extract()→
+
+asort()→
+
+arsort()→
+
+ksort()→
+
+krsort()→
+
+-----------------------------------
+array_values()→diğer diziye aktarma 
+-----------------------------------
+
+$arr = [
+  'ad' => 'tayfun',
+  'soyad' => 'erbilen'
+];
+$arr2 = array_values($arr);
+print_r($arr2);
+----------------------------------
+array_push()→dizinin sonuna ekleme
+----------------------------------
+$arr = ['tayfun', 'erbilen];
+array_push($arr, 'udemy','çikilata');
+print_r($arr);
+// $arr['anahtar'] = 'yeni değer';
+-------------------------------------
+array_unshift()→dizinin başına ekleme
+-------------------------------------
+$arr = ['tayfun','erbilen'];
+array_unshift($arr, 'udemy');
+print_r($arr);
+Yine de burada anahtar ile ekleme yapamıyoruz alltaki kodla yapabiliyoruz.
+$arr2 = [
+  'site' => 'udemy'
+];
+$arr = array_merge($arr2, $arr);
+print_r($arr);
+--------------------------------
+array_keys()→Dizinin anahtarları
+--------------------------------
+$arr = [ 
+  'ad' => 'tayfun',
+  'soyad' => 'erbilen'
+];
+
+$keys = array_keys($arr);
+print_r($keys);
+Ne yazık ki iç içe bir dizide tüm anahtarları vermiyor.Alttaki kodda oluyor ama .
+
+$arr = [ 
+  'ad' => 'tayfun',
+  'soyad' => 'erbilen'
+  'a' => [
+    'b' => 'c',
+    'd' => [
+      'e' => 'f'
+    ]  
+  ]
+];
+
+ $keys
