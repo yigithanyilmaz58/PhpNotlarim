@@ -1109,25 +1109,25 @@ array_unshift()→Dizinin başına yeni bir eleman eklemek için kullanılır.
 
 array_keys()→Dizinin anahtarlarını istemek için kullanılır.
 
-current()→
+current()→Dizinin ilk elemanını bulmak için kullanılır.
 
-end()→
+end()→Dizinin son elemanını bulmak için kullanılır.
 
-next()→
+next()→Dizideki sonraki elemanı bulmak için kullanılır.
 
-prev()→
+prev()→Dizideki önceki elemanı bulmak için kullanılır.
 
-reset()→
+reset()→Diziyi sıfırlayıp başa döndürür.
 
-extract()→
+extract()→Anahtarları bir değişken gibi kullanmamızı sağlıyor.
 
-asort()→
+asort()→Dizideki değerlere göre sıralanırlar.Küçükten Büyüğe
+Dizi değeri dediğim mesela 6,3,8 diye 3 harf var bunlar 0,1,2 diye sıralanırlar anahtarda onların  sırası.
+arsort()→Dizideki değerlere göre sıralanırlar.Büyükten Küçüğe
 
-arsort()→
+ksort()→Dizideki anahtarlara göre küçükten büyüğe sıralıyor.
 
-ksort()→
-
-krsort()→
+krsort()→Dizideki anahtarlara göre büyükten küçüğe doğru sıralıyor.
 
 -----------------------------------
 array_values()→diğer diziye aktarma 
@@ -1181,4 +1181,71 @@ $arr = [
   ]
 ];
 
- $keys
+$keys = array_keys($arr);
+
+function _array_keys($arr)
+{
+  static $keys _ [];
+  foreach ($arr as $key => $val){
+    array_push($keys, $key);
+    if (is_array($val)){
+      _array_keys($val);
+    }
+  }
+  return $keys;
+}  
+$keys =_array_keys($arr);
+print_r($keys);
+-----------------
+current ilk eleman
+-----------------
+$arr = ['yigithan','yilmaz'];
+echo current($arr);
+-----------------
+end son eleman 
+-----------------
+echo end($arr);
+-----------------
+next , prev önceki sonraki eleman reset
+-----------------
+$arr = ['yigithan','yilmaz','udemy','cikilata','cukulata'];
+echo current ($arr);
+echo next ($arr);
+echo next ($arr);
+echo prev ($arr);
+reset($arr); değerimiz yigithana geri döndü
+echo next ($arr); burda değer yilmaz aldı en başa döndük.
+-----------------------
+extract dizideki anahtarı değişken olarak kullanma
+
+-----------------------
+$arr = [
+  'ad' => 'Yigithan',
+  'soyad' => 'yilmaz'
+];
+extract($arr);
+
+echo $ad;
+------------
+asort()
+------------
+$arr = [3,1,6,4];
+print_r($arr); lhost 3 , 1 , 6 ,4 
+asort($arr);
+print_r($arr);lhost 1, 3, 4, 6
+arsort($arr);
+print_r($arr); lhost 6 4 3 1
+-------------------------
+
+
+$arr = [
+  'c' => 'değer 3',
+  'a' => 'değer 1',
+  'b' => 'değer 2',
+];
+ksort($arr); a b c diye sıralanırlar anahtarlarda küçükten büyüğe doğru demiştik.
+print_r($arr);
+krsort($arr); c b a ve karşılarındaki değerler gelir.
+```
+
+<h2>PHP'de String Fonksiyonları</h2>
