@@ -926,36 +926,177 @@ if (array_key_exists('c', $arr)){
 ```
 array_map()→Dizi içersindeki her elemanın değerini alır ve üzerinde bir oynama yaparak geriye döndürür.
 
-array_filter()→
+array_filter()→Dizi içerisindeki değerleri boş elemanları kaldırmamızı sağlar.
 
-array_merge()→
+array_merge()→İki diziyi birleştirmek için kullanılır.
 
-array_rand()→
+array_rand()→İçinden rastgele (random) değerler seçmemizi sağlar.
 
-array_reverse()→
+array_reverse()→Bir fonksiyonu tersten yazmamızı sağlar.
 
-array_search()→
+array_search()→Dizide değer aramak için kullanıyoruz.Eğer değeri var ise anahtarını döndürüyor.
 
-in_array()→
+in_array()→Neredeyse array_search ile aynı değerin olup olmadığını arıyoruz.
 
-array_shift()→
+array_shift()→Dizinin ilk elemanını seçip diziden çıkartır.
 
-array_pop()→
+array_pop()→Dizinin son elemanını çıkartıp işlem yapar.Üsttekinin tam tersidir yani.
 
-array_slice()→
+array_slice()→Dizinin belli bir aralığını seçmek için kullanılır.
 
-array_sum()→
+array_sum()→Dizinin değerlerinin toplamını bulmak için kullanılır.
 
-array_product()→
+array_product()→Bu ise çarpımını bulmak için kullanılıyor.
 
-array_unique()→
+array_unique()→unique adı üstünde benzersiz olması lazım.Dizide tekrarlanan elemanları siliyor.elemanların benzersiz olması lazım
 -------------------------
-array_map() manipülasyon
+array_map() manipülasyon(oynama yaparak geri döndürme)
 -------------------------
+<?php
+
+function filtrele($val){
+  return $val. '-';
+$arr = [1,2,3,4,5];
+$arr2 = array_map('filtrele', $arr);
+//print_r($arr2);
+
+$arr = ['','tayfun2','','erbilen']; Üstteki lhost 1 =>   2 =>tayfun 3 =>   4 => erbilen
+print_r($ârr);
+$arr = array_filter($arr); lhost sadece 2 ve 4 karşılarındarında değerleri olacak şekilde gözükecekler.
+print_r($arr);
+------------------
+array_filter()
+------------------
+$arr = [1,2,3,4,5];
+$arr2 = array_filter($arr, function($item){
+  return $item > 2 && $item <5;
+});
+print_r($arr2);
+----------------------------
+array_merge dizi birleştirme
+----------------------------
+
+$arr1 = [1,2,3];
+$arr2 = [4,5,6];
+
+$arr = array_merge($arr1; $arr2);
+print_r($arr); Lhost : 1,2,3,4,5,6
+-------------------
+array_rand rastgele
+-------------------
+$arr = [
+  'ad' => 'tayfun',
+  'soyad' => 'erbilen'i
+  'yas' => 24,
+  'site' => 'erbilen.net'
+];
+$random = array_rand($arr, 2); 
+$values = array_ömap(function($key) use($arr){
+  return $arr[$key];
+}, $random);
+
+print_r($values);
+-----------------------------
+array_reverse()→Tersten yazma
+-----------------------------
 
 $arr = [1,2,3,4,5];
-$arr2 = array_map()
+print_r($arr); lhost : 1,2,3,4,5
+$arr = array_reverse($arr);
+print_r($arr); lhost : 5,4,3,2,1
+-----------------------------------------
+array_search()-> Değer ara anahtar döndür
+-----------------------------------------
 
+$arr = [
+ 'ad' => 'yigithan',
+ 'soyad' => 'yilmaz'
+];
+$test = array_search('erbilen', $arr);
+echo $test; lhost : soyad ->Gerçekte amaç  anahtarı bulmak değil böyle bir değer var mı diye kontrol etmek. 
+---------------------
+$arr = [
+ 'ad' => 'yigithan',
+ 'soyad' => 'yilmaz'
+ 'a' => [
+  'b' => [
+    'c' => 'd'
+    ]  
+  ]
+];
+$test = array_search('d', $arr);
 
+function _array_search($cur_val, $arr);
+{
+  foreach ($arr as $key => $val){
+    if ($val == $cur_val){
+      return true;
+    }  
+    if (is_array($val)){
+      return _array_search($cur_val, $val);
+    }  
+  }
+  return false;
+}
+
+$test =_array_search('d', $arr);
+echo $test;
+--------------------------------
+in_array() değerin olup olmadığı
+--------------------------------
+$arr = [1,2,3,4];
+
+if (in_array('6', $arr))
+{
+  echo '3 değeri var2;
+} else {
+  echo 'yok';
+}  
+------------------------
+array_shift() ilk eleman
+------------------------
+$arr = [1,2,3,4,5];
+ $ilk_eleman = array_shift($arr);
+ print_r($arr); 1 hariç hepsini lhosta yazdırdı.
+ -----------------------
+ array_pop()→ son eleman
+------------------------
+$arr = [1,2,3,4,5];
+$son_eleman = array_pop($arr);
+print_r($arr); lhost 5 hariç hepsi
+echo $son_eleman; lhost 5
+-------------------------------------
+array_slice()→ belli bir aralık seçme
+-------------------------------------
+$arr = [1,2,3,4,5]; 
+İlk 2 eleman hariç hepsini alıcaz
+$arr2 = array_slice($arr, 2);
+print_r($arr');
+--------------
+$arr3= array_slice($arr, 2, 2); Sadece -2 yazsaydık son iki elemanı alırdık .
+print_r($arr3); lhost : 2den başlayıp 2 arttırınca gelen sayılar : 3 ve 4 yani bu ikisidir.
+---------------------------------
+array_sum()→Dizinin değer toplamı 
+---------------------------------
+$arr = [1,2,3,4,5];
+$toplam = array_sum($arr);
+echo $toplam; lhost 15
+----------------------
+array_product() çarpım
+----------------------
+$arr = [1,2,3,4,5];
+$carpim = array_product($arr);
+echo $carpim; lhost : 120
+-------------------------------
+array_unique() benzersiz eleman
+-------------------------------
+$ârr  = ['tayfun','erbilen','tayfun','erbilen','udemy'];
+print_r($arr); tayfun erbilen tayfun erbilen udemy
+$arr2 = array_unique($arr);
+print_r($arr2); lhost tayfun erbilen udemy
+?>
 ```
+<h2>PHP'de Dizi Fonksiyonları -3</h2>
+
+
 
