@@ -1249,3 +1249,61 @@ krsort($arr); c b a ve karşılarındaki değerler gelir.
 ```
 
 <h2>PHP'de String Fonksiyonları</h2>
+
+```
+strlen()Bir ifadenin toplam karakter sayısını verir.
+
+strstr()Bir ifade içersinde değer aramamızı sağlıyor.
+
+strpos()Bu do pozisyonu belirtiyor mesela harfi tarattık 5.karakter diyor.
+
+ucwords()Her kelimenin baş harfini büyütmemizi sağlar. 
+
+ucfirst()Cümlenin sadece ilk harfini büyütür.
+
+strtolower() Büyük yazılan karakterleri küçüğe çevirir.
+
+strtoupper() Küçük yazılan karakterleri büyüğe çevirir.
+
+trim() Sağ ve soldaki bütün karakterlerdeki tab boşluğunu yada boşlukları siler.
+
+ltrim()Soldaki boşlukları siler.
+
+rtrim()Sağdaki boşlukları siler. 
+
+substr()
+
+str_replace()
+
+str_repeat()
+
+--------------
+
+$str = 'Yigithan'Yilmaz';
+echo strlen($str);
+-----------------
+strstr
+------------------
+echo strstr'Yigithan Yilmaz', 'n'; lhost n Yilmaz
+------------------
+strpos
+------------------
+echo strpos('Yigithan Yilmaz', 'n'); lhost 8. karakter olduğu için 8 çıkacak.
+-----------------
+ucwords Hepsini başharfi ucfirst sadece ilk kelimenin başharfini
+-----------------
+$str = 'yigithan yilmaz';
+echo ucwords($str); 
+echo ucfirst($str); 
+------------------
+strtolower hepsini küçük küçük strtoupper() hepsini büyük yapar
+------------------
+$str = 'yigithan yilmaz';
+$str strtoupper($str);
+$str strtolower($str);
+----------------------
+$str = "yigithan \t yilmaz \₺";
+echo trim($str,'-'); örnek b
+---------------------------
+echosubstr($str, 3, 7,);
+
