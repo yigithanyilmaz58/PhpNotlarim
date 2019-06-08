@@ -1379,4 +1379,26 @@ erkek
 <input type="radio" name="cinsiyet" value="kadın">
 kadın
 </label>
+-----------------
+Hazır bir örnek göstermek istiyorum.
+
+<form action="index.php" method="post">
+ İsim: <br/>
+ <input type="text" name="isim" /><br/>
+ Soyisim: <br/>
+ <input type="text" name="soyisim" /><br/>
+ E-mail: <br/>
+ <input type="text" name="mail" /><br/>
+ Cinsiyet: <br/>
+ <input type="radio" name="cinsiyet" value="e" /> Erkek<br/>
+ <input type="radio" name="cinsiyet" value="k" /> Kadın<br/>
+ Mesaj: <br/>
+ <textarea name="mesaj"></textarea><br/>
+ <input type="submit" value="Formu gönder" />
 </form>
+```
+Formun Görüntüsü: 
+
+<img src="görüntü.png"/>
+
+# POST İLE DEĞER GÖNDERMEK
