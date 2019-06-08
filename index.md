@@ -1314,4 +1314,26 @@ echo str_replace('yilmaz' , 'sins' , $str3); yilmazlar sins olarak değişecek.
 echo str_repeat('*', 10); Tekrar ettirmemizi sağlar 10 tane yıldız yazdırdık.
 ```
 
-<h2>prin
+<h2>printf(), sprintf(), vprintf(), vsprintf() Fonksiyonları</h2>
+
+```
+printf()
+
+sprintf()
+
+vprintf()
+
+vsprintf()
+-----------
+$yer ='Afrikada';
+$sayi = 5;
+$tur = 'maymun';
+printf('Afrikada 5 tane maymun var.);
+printf('%s %d tane %s var.');
+printf('%s %d tane %s var., 'Afrikada, 5, 'maymun'); Diğer şekli 
+----------------
+$tarih = '2108-7-6';
+vprintf('', explode('-', $tarih));
+```
+<h1>PHP'de Form İşlemleri</h1>
+<h2>Örnek bir form hazırlayalım</h2>
