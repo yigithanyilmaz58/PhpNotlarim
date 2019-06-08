@@ -1401,4 +1401,4 @@ Formun Görüntüsü:
 
 <img src="görüntü.png"/>
 
-# POST İLE DEĞER GÖNDERMEK
+## POST İLE DEĞER GÖNDERMEK
