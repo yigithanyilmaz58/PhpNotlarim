@@ -1337,3 +1337,41 @@ vprintf('', explode('-', $tarih));
 ```
 <h1>PHP'de Form İşlemleri</h1>
 <h2>Örnek bir form hazırlayalım</h2>
+<div>Form iki adet değer alır biri action diğeri ise method.Action form gönderilir ise nereye gönderileceğini.Eğer boş ise sayfa kendi içerisine gönderir.Method ise  form elemanlarının nasıl gideceğini belirler.POST ile mi GET ile mi ? </div>
+
+
+<img src="formelemanları.png"/>
+
+
+
+
+```
+
+------------
+<form action="gonder.php method="post">
+
+
+Ad : <br>
+<input type="text" name="ad">
+<hr>
+Hakkımda: <br>            sütun     satır
+<textarea name="hakkimda" cols="30" rows="10"></textarea>
+<hr>
+Meslek : <br>
+<select name="meslek">
+  <option>-- seç --</option>
+  <option value="web-developer">Web Developer</option>
+  <option value="front-end-developer">Front End Developer</option>
+  <option value="Back-end-developer">Back-end Developer</option>
+</select>
+<hr>
+Cinsiyet: <br>
+<label>
+<input type="radio" name="cinsiyet" value="erkek">
+erkek
+</label>
+<label>
+<input type="radio" name="cinsiyet" value="kadın">
+kadın
+</label>
+</form>
