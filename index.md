@@ -1346,8 +1346,13 @@ vprintf('', explode('-', $tarih));
 
 
 ```
+Örnek Bir Form Örneği 
 
-------------
+<form action="formun gönderileceği sayfa" method="formun verilerini gönderme metodu">
+   buraya ise formun elemanları gelecek.
+</form>
+
+-----------
 <form action="gonder.php method="post">
 
 
