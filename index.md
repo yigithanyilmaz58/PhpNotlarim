@@ -1402,3 +1402,53 @@ Formun Görüntüsü:
 <img src="görüntü.png"/>
 
 ## POST İLE DEĞER GÖNDERMEK
+
+```           gonder.php                      $_POST
+<form action="formun gönderileceği sayfa" method="formun verilerini gönderme metodu">
+   buraya ise formun elemanları gelecek.
+</form>
+
+// $_POST
+  Bir dizinin içerisindeki bütün değerleri görebiliyorduk.Bu da bir dizi olduğu için :
+// print_r($_POST);
+
+<?php
+
+echo $_POST['ad'];
+------------------
+if($_POST['hakkimda'] == ''){
+  echo 'lütfen hakkınızda bir şeyler yazın.';
+} else{
+    print_r($_POST);
+Yanlız bir sıkıntımız var.Bu değerler şu an çok savunmasız.Açıklar bulabilirim,yaratabilirim.Müdahale edebilirim.
+O yüzden filtrelemek zorundayız.Bazı php fonksiyonları var.
+
+strip_tags() Bütün html etiketlerini kaldırıyor.
+
+htmlspecialchars() Hiçbir html kodunu kaldırmaz ama zararsız kodlar haline getirir.
+
+trim Bütün boşlukları siler yani boş bir şey yazdık sonra gönder dedik onun verisini çekmez yeniden bir şey yazın der.
+
+Bunlar da yetmiyor.Mesela hakkında kutusuna gidip <b>kalınlaşam yazım<b> deyip gönderirsem bu da çalışırsa sıkıntı.
+
+echo htmlspecialchars() $_POST['hakkimda'];
+
+Bunlar da yetersiz.Bizim her gelen form elemanı için bu filtrelemeyi yapmamız lazım.Yardımımıza array_map koşuyor.
+
+function form_filtrele($post)
+{
+  return htmlspecialchars(trim($post));
+}
+
+$_POST = array_map('form_filtrele', $_POST){
+
+}, $_POST);
+
+function post($name)
+{
+  if(isset($_POST[$name])) isset bir değişkenin varlığını kontrol ediyordu.
+}
+
+echo $_POST['TEST'];
+
+
