@@ -1444,11 +1444,28 @@ $_POST = array_map('form_filtrele', $_POST){
 
 }, $_POST);
 
+------------------------
+Burada recursive fonksiyonları kullanıyoruz.Dizi içindekileri de gizlemek için alttaki kodları gizliyoruz.
+
+function form_filtrele($post)
+{
+  return is_array($post) ? array_map('form_filtrele', $post) : htmlspecialchars(trim($post));
+}
+
+$_POST = array_map('form_filtrele', $_POST);
+
+print_r($_POST); 
+
+echo $_POST['hakkimda']; Başarılı bir şekilde kodu filtrelenmiş olarak kullanıyoruz.
+
+---------------------------
 function post($name)
 {
   if(isset($_POST[$name])) isset bir değişkenin varlığını kontrol ediyordu.
+    return $_POST[$name];
 }
 
-echo $_POST['TEST'];
-
-
+echo post('test');
+```
+<?php 
+echo 'sayi';
