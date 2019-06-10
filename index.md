@@ -1480,4 +1480,241 @@ GET'e geçmeden önce POST ile arasındaki farkların olduğu bir resim gösterm
   
   Arama:
   <input type="text" name="kelime">
+GET'in mantığı nası çalışıyor hemen anlayalım.
+key=value%key=value İkisini birleştiren & ampersan işaretimiz.
+?kelime=yiğithan&id=5 bunu çalıştırmak istediğimiz zaman en başına soru işareti koyuyoruz.
+-----------------------------------
+Şimdi gelelim bu get işlemlerini nasıl alacağımıza.
+---------------
+print_r($GET);
+
+Biz get değermizi aldığımızda yeni sekmede de açsak hata vermiyor Posttan önemli bir farkı da bu zaten. 
+
+Post değerleri arka planda gönderiyor.Ve sayfayı yenilediğinizde post işlemi biterse değerleri göremiyorsunuz.
+
+Ama gette zaten biz url kısmında belirttiğimiz için bu parametleri istediğimiz zaman kullanıyoruz.
+
+Postu nerde Geti nerede kullanacağız der iseniz örnek verelim hemen : 
+
+arama kısmında post kullanılmaz.Get kullanılır.
+Mesela bir veri ekliyoruzdur.Bir üye kaydı yapıyorsundur burada urlde belirtmene gerek yok.
+Postta hemen arka plan kaydedip yönlendirme işlemi vesaire yaparsın.
+----------------------------
+ID: <?php echo get('id'); Buna da istediğimiz gibi urlden müdahale edebiliriz.Değerini değiştirebiliriz.
+<hr>
+<?php
+if (!is_int(get('id')))
+{
+  echo 'ID sadece sayı olmalıdır';
+  exit; exit dediğimiz zaman üstündeki kodlar çalışacak fakat altındaki kodlar çalışmayacak.
+}
+?>
 </form>  
+ ```
+ <h2>PHP'de REQUEST ile Değer Göndermek ve Almak</h2>
+ <div>Peki REQUEST ne ? --> Post ile de göndersek get ile de göndersek biz bu değerleri REQUEST ile alabiliyoruz</div>
+ ```
+
+print_r($_REQUEST);
+<form action="php-get.php?id=5" method="post">
+Hem burda get parametresini göndermiş oluyoruz hem de post etmiş oluyoruz aynı anda.
+Arama:
+  <input type="text" value=<?php echo(get('kelime') ?>" name="kelime">
+Yani request post ve get fark etmezsizin hepsini içine alabiliyor. xd
+```
+<h2>PHP ile Aynı Sayfada Birden Fazla Form İşlemi</h2>
+```
+Genelde bazen giriş ve kayıt ol sayfaları aynı sayfada oluyor ve bazı insanlar bunu o sayfada post etmek istiyor ikisini.
+
+<?php
+function form_filtrele($post)
+{
+  return is_array($post) ? array_map('form_filtrele', $post)
+}
+$_POST = array_map('form_filtrele', $_POST);
+
+function post($name)
+{
+  if (isset($_POST[$name]))
+    return $_POST[$name];
+}
+
+Burası giriş yap post edilmişse
+if(post('giris_yap'))
+{
+  print_r($_POST);
+}
+
+Burası kayıt ol post edilmişse
+if(post('kayit_ol'))
+{
+  print_r($_POST);
+}
+?>
+
+<form action="" method="post">
+  <h3>Giriş Yap</h3>
+  Kullanıcı Adı: <br>
+  <input type="text" name="kadi"> <hr>
+  Şifre: <br>
+  <input type="password" name="sifre"> <br>
+  <input type="hidden" name="giris_yap" value="1">
+  <button type="submit">Giriş Yap</button>
+</form>  
+
+
+
+<form action="" method="post">
+  <h3>Kayıt Ol</h3>
+  Kullanıcı Adı: <br>
+  <input type="text" name="kadi"> <hr>
+  Şifre: <br>
+  <input type="password" name="sifre"> <br>
+  E-Posta: <br>
+  <input type="text" name="eposta"> <hr>
+  <input type="hidden" name="kayit_ol" value="1">
+  <button type="submit">Kayıt Ol</button>
+</form>  
+Şimdi burda 2 adet formumuz var biz ikisini de tek seferde yakalayacağız onun için if ve input hiddenı kullanacağız.Üstte.
+Böylelikle birden fazla formu oluşturup birbirine karışmadan bu şekilde kullanabilirsiniz.
+```
+<h1>PHP'de Dosya ve Dizin İşlemleri(Include,Require)</h1>
+```
+İki farklı şekilde dosyaları çağırabiliyoruz.Bunların farkı ne ?
+
+include ile dosya çağırdığımda o dosya yoksa bile sadece uyarı veriyor ama sistem çalışmaya devam ediyor.
+
+require ile çağırdığımızda dosya yoksa fatal error verir ve sistemin çalışmasını durdurur.
+
+İki tane dosyamız olsun biri a.php ikincisi index.php unutmayın alttaki dersleri bunlara göre yapacağız.
+
+a.php dosyamızın içine bunu sonradan çağırdın yazalım.
+
+include 'test.php';
+echo'deneme'; 
+Hata verdi ama alttaki denemeyi de yazdırdı.
+--------------------------------
+require 'test.php';
+echo'deneme'; 
+Fatal error verdi ve diğer dosyaları da çalıştırmadı.
+---------------------------------------
+include 'a.php';
+echo'deneme';
+bunu sonradan çağırdındeneme diye yazdı localhostumuz.require ile de aynı şekilde çağırabiliriz.
+-------------------
+Veya bir fonksiyon gibi de kullanabiliriz.
+
+include 'a.php';
+require 'a.php';
+include ('a.php');
+include ('a.php');
+echo'deneme'; 
+-----------------------
+Bir de include_once ve require_once diye iki kodumuz daha var.Bunları anlatalım şimdi.
+
+  include_once 'a.php';
+  include_once 'a.php';
+  include_once 'a.php';
+  
+  echo 'deneme';
+include_once ile çağırdığımızda değerimiz bir kere yazdı bir daha yazmadı bir kere yazdırmaya işe yaradı.
+
+  require_once 'a.php';
+  require_once 'a.php';
+  require_once 'a.php';
+      
+  echo 'deneme';
+
+Bunda da bir şey değişmedi sadece farkını önceden söylemiştik dosya yok ise fatal error verir.
+------------------
+Asıl sorumuz şu biz bu işlemi ne için kullanıcaz ? Tema sistemi yapıyorsunuz mesela.Hidden ve footerınızı ayıracaksınız.
+
+Bir de footer.php diye oluşturuyoruz headerın </body> ve </html> etiketlerini bu sayfaya koyuyoruz.
+
+Bunları her seferinde yazmak yerine iki farklı dosya olarak oluşturacaksınız.
+
+include ve require ile sayfanıza dahil edeceksiniz.Hemen altta bir örnek yapalım.
+
+Bir tane header.php diye bir tane de index.php diye  iki tane dosya oluşturup headerın içine html kodumuzu koyalım.
+
+$title = 'Yigithan';
+
+require 'header.php';
+
+Bunu yazdıktan sonra hemen header.phpdeki dosyamıza <title><?php echo $title; ?></title> Yazar isek değerimiz gelir.
+?>
+
+  content
+
+<?php
+  require 'footer.php';
+?>
+hakkimda.php diye bir dosya oluşturalım.Az önceki index.php dosyamızın adını index2.php yapalım.
+
+header.php dosyamızı düzenleyi iki adet link koyalım.
+
+a href="index2.php">Anasayfa</a>
+|
+a href="hakkimda.php">Hakkımda</a>
+
+<?php
+$title = 'Hakkımda  - Yigithan Yilmaz';
+require 'header.php';
+?>
+
+  hakkımda sayfası
+
+<?php
+  require 'footer.php';
+?> 
+Şimdi artık 2 adet linke tıkladığımızda hem içerik hem de başlık değişiyor ve burdaki headırımız ve footerımız sabit kalıyor.Çünkü include ve require herhangi biri sayfamıza eklediğimiz için.
+```
+<h2>PHP'de Dosya Oluşturmak/Okumak/Silmek</h2>
+```
+Şimdi hemen vscodeda php-dosya-islemleri.php diye bir dosya oluşturalım.(Bu dosya o dosya anlamında değil.)
+
+Dosya Oluşturma : 
+touch() İki tane parametre almıştır biri filename yani dosyanın adı ve uzantısı.Diğeri de time .Farkını anlatalım.
+-----------
+  touch('test.txt');
+  touch('test2.txt', time() - 84000);
+Biz dosyayı oluşturduk.Dosyanın üstüne gelip get info(yani bilgi al)dersek ne zaman oluşturulduğunu gösterir.
+Biz bunu kendimiz ayarlayabiliyoruz.
+------------------
+Şimdi geldik dosya açma ve okuma işlemlerine.Dosya açma ve okuma için belli başlı fonksiyonlar var. : 
+
+/*
+Kipler;
+r - okumak için aç
+
+r+ - okumak ve yazmak için aç
+
+w - yazmak için aç (dosya yok ise oluşturur varsa üstüne yazar)
+
+w+ - okumak ve yazmak için aç
+
+a- yazmak için aç
+
+a+okumak ve yazmakiçin aç
+
+/*
+fopen() - dosyayı açmamızı sağlıyor.
+
+fclose() - dosyayı kapatmamızı sağlıyor.
+
+fwrite() - dosyaya bir şeyler yazmamızı sağlar.
+
+fread() - tüm içeriği okur.
+
+fgets() - satır satır okur.
+
+feof() - dosyanın sonuna gelip gelinmediğini döndürür.
+*/
+-----------------------
+  $icerik ='Bu bir yazı örneğidir.';
+  
+  $dosya = fopen('test.txt', 'w');
+    fwrite($dosya, $icerik);  
+  fclose($dosya);
+
+  
