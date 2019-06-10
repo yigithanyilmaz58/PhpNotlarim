@@ -1467,7 +1467,14 @@ function post($name)
 
 echo post('test');
 ```
+GET'e geçmeden önce POST ile arasındaki farkların olduğu bir resim göstermek istiyorum
+
+<img src="getpostfarki.png></img>
+
 <h2>GET İLE DEĞER GÖNDERMEK</h2>
+
+
+```
 <?php
 <form action="" method="get">
   
