@@ -1469,7 +1469,7 @@ echo post('test');
 ```
 GET'e geçmeden önce POST ile arasındaki farkların olduğu bir resim göstermek istiyorum
 
-<img src="getpostfarki.png/>
+<img src="getpostfarki.png"/>
 
 <h2>GET İLE DEĞER GÖNDERMEK</h2>
 
