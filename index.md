@@ -1467,5 +1467,10 @@ function post($name)
 
 echo post('test');
 ```
-<?php 
-echo 'sayi';
+<h2>GET İLE DEĞER GÖNDERMEK</h2>
+<?php
+<form action="" method="get">
+  
+  Arama:
+  <input type="text" name="kelime">
+</form>  
