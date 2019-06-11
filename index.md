@@ -1709,12 +1709,199 @@ fread() - tüm içeriği okur.
 fgets() - satır satır okur.
 
 feof() - dosyanın sonuna gelip gelinmediğini döndürür.
+
+filesize() - dosya karakter sayısını döndürür.
+
+unlink() - Peki biz her şeyi yaptık iyi güzelt text.txt'yi nasıl sileceğim ?Silme işlemi için unlink kullanılıyor.
 */
 -----------------------
   $icerik ='Bu bir yazı örneğidir.';
-  
+ 
   $dosya = fopen('test.txt', 'w');
-    fwrite($dosya, $icerik);  
+    //fwrite($dosya, $icerik);  
+  echo filesize('test.txt); Toplam tüm karakter sayısını döndürdü.
+  //echo fread($dosya, 5); İlk 5 karakter geldi lhost:Bu bi
+  //echo fread($dosya, filesize('test.txt')); Tüm karakterleri döndürdü yani icerikteki cümleyi.
   fclose($dosya);
+w ile kullanırsak test.txtdeki yazımız değişecek ama a kullanırsak apend yani diğerinin yanına yazılacak.(eklenecek)
 
-  
+$icerik = 'Bu da bir örnektir' . rand(0,1000) . "\n";
+$dosya = fopen('test.txt', 'a');
+fwrite($dosya, $icerik);
+fclose($dosya);
+Random sayı değerlerini belirleyecek ve yazdıracak.
+Bu da bir örnektir 123
+Bu da bir örnektir 346 böyle böyle her f5lediğimizde yeni değerler gelecek.
+
+echo fgets($dosya);  Bu değeri almak için dosyadaki a'yı a+ yapmamız lazım.Çünkü sadece yazmak için açmış olduk.
+
+Mesela şimdi bizim test.txtmizde 5 tane değer var 4 tanesini fgets ile yazdırdık.Ama sona geldik mi ?
+
+echo fgets($dosya) . '<br>';
+
+print_r(feof($dosya)); false değerini döndürür ama 5'ini de yazdırırsak true(1) değerini döndürür.
+Bunun daha kısa versiyonu var hemen gösterelim.
+
+while(!feof($dosya)){
+  echo fgets ($dosya)  '<br>';
+}   fgetsimizi bir kere yazıyoruz ve bu tam 5 kez döndükten sonra bu kısım artık true değerini döndürdüğünde başında ünlem olduğu için burası false oluyor ve döngüden çıkıyor böylelikle satır satır şekilde okuyabiliyoruz.
+
+unlink('test.txt'); Tamamen dosyamızı siliyor.
+
+Bir de dosyayı okumak için direkt file fonksiyonu var.
+
+$degerler = file('test.txt');
+print_r($degerler); İstersek dosyaları satır satır böyle okuyabiliyoruz.
+
+/*
+file_get_contents()
+file_put_contents()
+*/
+Şimdi test dosyamın içeriğini almak istiyorum.
+
+$icerik = file_get_contents('test.txt');
+echo $icerik; 
+Direkt içeriğimize erişiyoruz.Ayrıca direkt sitemizin kaynak kodunu alabiliyoruz.
+
+$icerik =file_get_contents('http://erbilen.net');
+
+echo $icerik;
+---------------
+file_put_contents('test.txt', 'bu yeni değer');
+Direkt test.txt deki her şeyi silip bunu yazdıracak.
+
+Fakat 3.değer olarak FILE_APPEND eklersem direkt üstüne ekliyor.Yani aynı değeri yan yana yazdırıyor.
+```
+<h2>PHP'de Dizin Oluşturmak/Silmek</h2>
+```
+mkdir(dosya_adi, chmod) Oluşturmak için.İki parametre alır bu arada dosya adı ve chmod(dosya izini).
+
+rmdir() Silmek için
+--------------
+//mkdir('test');
+rmdir('test);
+Bu şekilde dosya oluşturup silebiliyoruz.
+-------------
+mkdir('test', 0777); Bu dosya izni herkes tarafından yazılabilir demek anlamına geliyor. Üzerinde işlem yapılabilir.
+``` 
+<h2>PHP'de  Dizin/Dosya Olup Olmadığını Kontrol Etmek</h2>
+```
+Mesela önceki derslerde dosyayı yada klasörü sildiğimiz zaman olmayan bir dosya yada klasörü sildiğimizde hata alıyorduk.
+Bunun olmaması için varsa dosyayı sil diye bir şey öğreneceğiz.
+
+file_exists() Mesela test klasörü oluşturduk bu var mı yok mu nasıl anlayacağız ? Bu fonksiyonumuzla anlıyoruz.
+
+
+------------------
+echo file_exists('test.txt'); 
+1 değerini verdi test2.txt diye yazsaydım false değeri alacaktım.Bunda if else kullanıyoruz
+
+if (file_exists('test.txt')){
+    echo 'test.txt dosyası mevcut!';
+}
+
+if (file_exists('test.')){
+    echo 'test klasörü mevcut!';
+    rmdir('test'); 
+}     
+Hata vermiyor çünkü var ise silme işlemini yaptık burda doğal olarak hata vermedi.Bu şekilde varlık kontrolü yapabiliyoruz
+```
+<h2>PHP'de Dosya ve Dizinlerde CHMOD Ayarını Belirlemek</h2>
+```
+Öncelikle izinlerin mantığının nasıl çalıştığını anlayalım.
+
+chmod()
+
+1. numara 0 ile başlar.
+2. numara dosya sahibi izinlerini temsil ediyor.
+3. numara kullanıcı grupları izinlerini temsil ediyor.
+4. numara geri kalan herkesin.
+
+Burdaki numaraların bir anlamı , bir sebebi var.
+
+1 = execute (işlem) izni 
+2 = yazma izni 
+4 = okuma izni 
+
+Bir şey fark ettiniz mi ? Bunların toplamı 7 .
+Eğer 2. numarada 7 varsa dosya sahibine bütün izinler verilmiş demek
+Eğer 3. numarada 7 varsa kullanıcı gruplarına bütün izinler verilmiş demek
+Eğer 4. numarada 7 varsa dosya sahibine bütün izinler verilmiş demek
+---------------
+chmod('test.txt', 0744);
+Dosya sahibi her işlemi yapsın ama geri kalanlar sadece okuma izni yapsın demek üstte yazdığımız şey.
+Mesela sona 0 yaparsak dosya sahibi ve kullanıcı sahibine izin var ama herkese no access (erişim yok) demek.
+Bu şekilde güvenlik açıkları oluşabiliyor.O yüzden chmodu unutmuyoruz arkadaşlar.
+```
+<h2>PHP'de Dizindeki Dosyaları Listemek</h2>
+```
+Aslında dizindeki dosyaları listemennin birkaç yolu var ama biz en iyi iki tanesini öğrenelim.
+
+scandir() Dizini taramak anlamında kullanılıyor.
+
+glob()
+
+----------------
+$dosyalar = scandir('.');
+print_r($dosyalar); Mevcut listemizdeki tüm dosyaları listeler.
+---------------
+$dosyalar = array_filter(scandir('.'), 'is_dir');
+print_r($dosyalar); Mevcut listemizdeki tüm dosyaları listeledi.
+Sadece dizinleri listeledi is_file yapsaydı dosyaları listeleyecekti.
+----------------
+$dosyalar = glob('*', GLOB_ONLYDIR);
+print_r($dosyalar);
+Yada globonlydırı çıkartıp  yıldızın yanına '*/' slash koysaydık yine dizinleri listeleyecekti.
+----------------
+$dosyalar = glob('*.php');
+print_r($dosyalar); Sadece .php ile biten dosyaları listeledi.
+-----------------
+$dosyalar = glob('*.{php,txt}', GLOB_BRACE);
+print_r($dosyalar); Şimdi de uzantısı php ve txt ile biten tüm dosyaları listeleyecek.Sadece dizin ve txt çekmek istersek:
+glob('/{php,txt}', GLOB_BRACE);
+-----------------
+Şimdi her ikisiyle de birer recursive fonksiyon yazalım.
+----------------------
+function dosya_listele($dizin_adi)
+{
+  $dosyalar = scandir($dizin_adi);
+  print_r($dosyalar);
+}
+
+dosya_listele('.');
+-------------------
+Bir de ul-li yapısıyla yapalım.
+function dosya_listele($dizin_adi)
+{
+  $dosyalar = scandir($dizin_adi);
+  echo '<ul>';
+    foreach ($dosyalar as $dosya){
+      if ( !in_array($dosya, ['.', '..']) ){
+          echo '<li> . $dosya;
+          if ( is_dir($dizin_adi . '/' . $dosya)){
+            dosya_listele($dizin.adi . '/' . $dosya);
+          echo '<li>';
+      }
+    }
+  echo '<ul>';
+}
+
+dosya_listele('.');
+
+Şimdi ne olacak ?
+İlk listeleyecek dosyalarımızı ve klasörlerimizi her birine birer birer girip listeleyecek .
+```
+<h2>PHP'de Dosya ve Dizin Adlarını Yeniden Adlandırmak/Taşımak</h2>
+```
+rename (onceki_yol, sonraki_yol)
+-------------------------------
+rename('test.txt', 'tayfun.txt');
+Yeni ismi tayfun.txt.Şimdi de taşımayı gösterelim.
+
+rename('tayfun.txt', 'bolum-1/tayfun.txt');
+
+rename('bolum-111', 'bolum-2/bolum-111'); bölüm 111 bölüm 2 nin içersinde listeleniyor artık.
+```
+<h1>PHP'de Oturum Yönetimi</h1>
+
+<h2>PHP'de Oturum (Session) Başlatmak/Kullanmak/Silmek</h2>
