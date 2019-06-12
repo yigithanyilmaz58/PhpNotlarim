@@ -1905,3 +1905,31 @@ rename('bolum-111', 'bolum-2/bolum-111'); bölüm 111 bölüm 2 nin içersinde l
 <h1>PHP'de Oturum Yönetimi</h1>
 
 <h2>PHP'de Oturum (Session) Başlatmak/Kullanmak/Silmek</h2>
+```
+Bu dersimizde PHP'de oturum yönetimindeki sessionları göreceğiz.Session nasıl başlatılır ? 
+Oturum değişkenleri nasıl kullanılır.Ve session nasıl sonlanır.
+Oturumu başlatmak için her zaman sayfanın başına session_start(); yazıyoruz.Her sayfaya yazmak zorunda değilsiniz.
+Sadece ana sayfaya yazmak yeterli olacaktır.,
+----------------------------------
+session start();
+
+$_SESSION['kullanici_adi'] = 'yigithan';
+
+echo $_SESSION['kullanici_adi'];
+
+Üstteki kodumuzu bir kere çalıştırdık sonra ortadakine siler isek session bitene kadar yazdırmaya devam eder.
+
+session_destroy(); Bütün sessionları yok eder artık değerimizi göremiyoruz.
+---------------
+session_start();
+
+$_SESSION['kullanici_adi'] = 'yigithan';
+$_SESSION['parola'] = 'yigithan';
+
+unset($_SESSION['parola']);
+
+print_r($_SESSION);
+
+İçerden parola değerini unset sayesinde sildik.Birini de silmek istersek unset ile siliyoruz
+```
+<h2>Örnek: Giriş Yap Uygulaması</h2>
