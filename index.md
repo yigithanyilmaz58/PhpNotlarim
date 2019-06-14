@@ -1905,6 +1905,7 @@ rename('bolum-111', 'bolum-2/bolum-111'); bölüm 111 bölüm 2 nin içersinde l
 <h1>PHP'de Oturum Yönetimi</h1>
 
 <h2>PHP'de Oturum (Session) Başlatmak/Kullanmak/Silmek</h2>
+
 ```
 Bu dersimizde PHP'de oturum yönetimindeki sessionları göreceğiz.Session nasıl başlatılır ? 
 Oturum değişkenleri nasıl kullanılır.Ve session nasıl sonlanır.
@@ -1930,13 +1931,6 @@ unset($_SESSION['parola']);
 
 print_r($_SESSION);
 
-İçerden parola değerini unset sayesinde sildik.Birini de silmek istersek unset ile siliyoruz
-
+İçerden parola değerini unset sayesinde sildik.Birini de silmek istersek unset ile siliyoruz.
 ```
-
-```
-# Örnek: Giriş Yap Uygulaması
-```
-ananızı skm
 <img src="formelemanları.png"/>
-
