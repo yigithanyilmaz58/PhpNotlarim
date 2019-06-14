@@ -1931,7 +1931,9 @@ unset($_SESSION['parola']);
 print_r($_SESSION);
 
 İçerden parola değerini unset sayesinde sildik.Birini de silmek istersek unset ile siliyoruz
+
 ```
+
 
 <h2>Örnek: Giriş Yap Uygulaması</h2>
 
