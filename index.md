@@ -1935,7 +1935,7 @@ print_r($_SESSION);
 ```
 
 
-<h2>Örnek: Giriş Yap Uygulaması</h2>
+# Örnek: Giriş Yap Uygulaması
 
 <img src="goruntu1.png"/>
 
