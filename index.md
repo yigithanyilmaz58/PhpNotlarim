@@ -1937,12 +1937,6 @@ print_r($_SESSION);
 ```
 # Örnek: Giriş Yap Uygulaması
 ```
-<img src="goruntu1.png"/>
 
-<img src="goruntu2.png"/>
+<img src="formelemanları.png"/>
 
-<img src="goruntu3.png"/>
-
-<img src="goruntu4.png"/>
-
-<img src="goruntu5.png"/>
