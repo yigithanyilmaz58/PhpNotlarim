@@ -2053,7 +2053,8 @@ $uye = [
 ```
 ```
 Bu kodların hepsi önceki giriş oturumuyla bağlantılıdır.
--
+
+
 php-cookie.php
 <?php
 
