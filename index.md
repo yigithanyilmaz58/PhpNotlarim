@@ -2099,5 +2099,7 @@ setcookie('uye[id], 1, time() + 86400);
 setcookie('uye[kullanici_adi]', 'yigithan', time() + 86400);
 setcookie('uye[sifre]', '123', time() + 86400);
 print_r($_COOKIE);
-```
+
 <h1>PHP'de Dosya Yükleme</h1>
+
+<h2>Örnek Formun Oluşturulması</h2>
