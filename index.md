@@ -2103,11 +2103,32 @@ print_r($_COOKIE);
 <h1>PHP'de Dosya Yükleme</h1>
 
 <h2>Örnek Formun Oluşturulması</h2>
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data>
 
-    Dosya Seçin: <br>
-    <input type="file" name="dosya"> <br>
-    <button type="submit">Yükle</button>
+   Dosya Seçin: <br>
+   <input type="file" name="dosya"> <br>
+   <button type="submit">Yükle</button>
+   </form>
+Yeni bir dosya oluşturalım
+<?php 
 
+// $_FILES
 
-</form>
+print_r($_FILES);
+?>
+
+Bu tamam şimdi mesela dosya geliyor o zaman dosya içerisinden bir şeyleri kontrol ettirmem lazım.
+Hemen alttaki kodumuzu kullanıyoruz.
+
+<?php
+
+// $_FILES
+
+if($_FILES['dosya']['error'] == 4){
+    echo 'Lütfen dosyanızı seçin.';
+} else {
+    print_r($_FILES['dosya']);
+}
+?>
+
+<h2>PHP İle Dosya Yükleme</h2>
