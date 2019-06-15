@@ -2051,36 +2051,37 @@ $uye = [
 ```
 ## Zaman Ayarlı Session Örneği
 ```
+```
 Bu kodların hepsi önceki giriş oturumuyla bağlantılıdır.
 -
 php-cookie.php
 <?php
 
-    //Mantığı şu kullanıcı giriş yaptı diyelim, kullanıcı eğer bir dakika boyunca başka bir sayfaya geçmemişse oturum (session) sonlandı diyelim.
+   //Mantığı şu kullanıcı giriş yaptı diyelim, kullanıcı eğer bir dakika boyunca başka bir sayfaya geçmemişse oturum (session) sonlandı diyelim.
     //Bunu e-okuldan hatırlamanız lazım 5 yada 10 dakika boyunca afk kalırsanız sizi atıyordu herhangi bir yere bakmanıza izin vermiyordu.
     //index.php'ye de kontrolünü yaptırmamız lazım o yüzden alttaki kodu require kodumuzun hemen altına yazdırıyoruz.
 
-    if (isset($_SESSION['zaman']) && time() > $_SESSION['zaman']){
+   if (isset($_SESSION['zaman']) && time() > $_SESSION['zaman']){
         session_destroy();
         header('Location:/oturun_sonlandi.php');
 
-    }
-    //Üstteki kodda isset ile kontrolümüzü yaptırdık.Zaman diye bir sessionum varsa  ve şuanki zamandan bunun değeri küçükse sonlandırdım 
+   }
+   //Üstteki kodda isset ile kontrolümüzü yaptırdık.Zaman diye bir sessionum varsa  ve şuanki zamandan bunun değeri küçükse sonlandırdım 
 
-    //Önceki dersimizdeki giris.php altında else içine bu kodu yazıyoruz.Alttaki 10 saniye hiçbir şey yapmadan durar isek sitede oturum sonlandı demek.
+   //Önceki dersimizdeki giris.php altında else içine bu kodu yazıyoruz.Alttaki 10 saniye hiçbir şey yapmadan durar isek sitede oturum sonlandı demek.
 
-    $_SESSION['zaman'] = time() + 10;
-    $_SESSION['kullanici_adi'] = $uye['kullanici_adi'];
-    //header()
-    header('Location:');
+   $_SESSION['zaman'] = time() + 10;
+   $_SESSION['kullanici_adi'] = $uye['kullanici_adi'];
+   //header()
+   header('Location:');
 
 ?>
 oturum_sonlandi.php
 
 Üzgünüz, uzun süre işlem yapmadığınız için oturumunuz sonlandı. 
 <a href="index.php">Tekrar Giriş Yapınız</a>
-```
-<h2>Cookie ve Session'larda Dizi(Array) Depolamak</h2>
+
+ <h2>Cookie ve Session'larda Dizi(Array) Depolamak</h2>
 
 php-session-cookie.php
 <?php 
