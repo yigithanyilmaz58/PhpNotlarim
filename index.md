@@ -2103,3 +2103,11 @@ print_r($_COOKIE);
 <h1>PHP'de Dosya Yükleme</h1>
 
 <h2>Örnek Formun Oluşturulması</h2>
+<form action="" method="post">
+
+    Dosya Seçin: <br>
+    <input type="file" name="dosya"> <br>
+    <button type="submit">Yükle</button>
+
+
+</form>
