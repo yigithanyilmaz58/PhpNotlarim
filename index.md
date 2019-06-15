@@ -2049,9 +2049,9 @@ $uye = [
     print_r($_COOKIE);
 ?>
 ```
+
 ## Zaman Ayarlı Session Örneği
-```
-```
+
 Bu kodların hepsi önceki giriş oturumuyla bağlantılıdır.
 
 
@@ -2134,3 +2134,5 @@ if($_FILES['dosya']['error'] == 4){
 ?>
 
 <h2>PHP İle Dosya Yükleme</h2>
+
+
