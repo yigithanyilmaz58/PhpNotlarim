@@ -2080,7 +2080,7 @@ oturum_sonlandi.php
 Üzgünüz, uzun süre işlem yapmadığınız için oturumunuz sonlandı. 
 <a href="index.php">Tekrar Giriş Yapınız</a>
 ```
-## Cookie ve Session'larda Dizi(Array) Depolamak
+<h2>Cookie ve Session'larda Dizi(Array) Depolamak</h2>
 ```
 php-session-cookie.php
 <?php 
@@ -2099,7 +2099,5 @@ setcookie('uye[id], 1, time() + 86400);
 setcookie('uye[kullanici_adi]', 'yigithan', time() + 86400);
 setcookie('uye[sifre]', '123', time() + 86400);
 print_r($_COOKIE);
-
 ```
-# PHP'De Dosya Yükleme
-## Örnek Formun Oluşturulması
+<h1>PHP'de Dosya Yükleme</h1>
