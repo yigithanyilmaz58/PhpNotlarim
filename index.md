@@ -1933,4 +1933,173 @@ print_r($_SESSION);
 
 İçerden parola değerini unset sayesinde sildik.Birini de silmek istersek unset ile siliyoruz.
 ```
-<img src="formelemanları.png"/>
+
+# PHP'de Giriş Yap Uygulaması
+```
+index.php
+*********
+<?php 
+session_start();
+ob_start();
+require 'ayarlar.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+ 
+<?php
+    if (isset($_SESSION['kullanici_adi'])){
+        include 'admin.php';
+    } else {
+        include 'giris.php';
+    }
+?>
+</body>
+</html>
+***********
+giris.php
+<?php
+
+if (isset($_POST['submit'])){
+
+    $kullanici_adi = $_POST['kullanici_adi'];
+    $sifre = $_POST['sifre'];
+
+    if (!$kullanici_adi || !$sifre){
+        $hata = 'Lütfen kullanıcı adı ya da şifrenizi giriniz.';
+    } elseif ($kullanici_adi != $uye ['kullanici_adi']) {
+        $hata = 'Kullanıcı adınız hatalı.';
+    } elseif ($sifre != $uye['sifre']) {
+        $hata = 'Şifreniz hatalı.';
+    } else {
+
+        $_SESSION['kullanici_adi'] = $uye['kullanici'];
+
+        //header()
+        header('Location:PHPNOTLARIM');
+
+    }
+
+}
+
+
+?>
+
+<?php if (isset($hata)): ?>
+    <div  style="border: 1px solid red">
+        <?php echo $hata; ?>
+    </div>
+<?php endif; ?>    
+
+<form action="" method="post">
+Kullanıcı adı: <br>
+<input type="text" name="kullanici_adi">
+<hr>
+Şifre : <br>
+<input type="password" name="sifre"><br>
+<input type='hidden' name="submit"  value="1">
+<button type="submit">Giriş Yap</button>
+</form>
+************
+admin.php
+*********
+Hoşgeldin <?php echo $_SESSION['kullanici_adi'] ?> kardeş<div class=""></div>
+
+<a href='cikis.php'>[Çıkış Yap]</a>
+**********
+cikis.php
+********
+<?php
+session_start();
+session_destroy();
+
+header('Location:/phpnotlarım');
+?>
+********
+ayarlar.php
+*********
+<?php
+
+$uye = [
+    'kullanici_adi' => 'admin',
+    'sifre' => '123'
+];
+**********
+```
+ ## PHP'de Çerez(Cookie) Oluşturmak/Kullanmak/Silmek
+ ```
+ Biz sessionları oluşturduğumuzda biz tarayıcımızı kapatırsak sessionlar bitiyor yani kapanıyor.
+ 
+ Cookienin farkı ise tarayıcı tarafından oluşturulduğu için kapatsanız bile silinmez.
+ 
+ <?php
+
+    // setcookie()
+    // $_COOKIE
+    // Site diye bir değişken oluşturup değerine udemy diyelim.86 400 saniye boyunca cookiemiz kalacak.
+
+    setcookie('site', 'udemy' time() + 86 400);
+
+    print_r($_COOKIE);
+?>
+```
+## Zaman Ayarlı Session Örneği
+```
+Bu kodların hepsi önceki giriş oturumuyla bağlantılıdır.
+-
+php-cookie.php
+<?php
+
+    //Mantığı şu kullanıcı giriş yaptı diyelim, kullanıcı eğer bir dakika boyunca başka bir sayfaya geçmemişse oturum (session) sonlandı diyelim.
+    //Bunu e-okuldan hatırlamanız lazım 5 yada 10 dakika boyunca afk kalırsanız sizi atıyordu herhangi bir yere bakmanıza izin vermiyordu.
+    //index.php'ye de kontrolünü yaptırmamız lazım o yüzden alttaki kodu require kodumuzun hemen altına yazdırıyoruz.
+
+    if (isset($_SESSION['zaman']) && time() > $_SESSION['zaman']){
+        session_destroy();
+        header('Location:/oturun_sonlandi.php');
+
+    }
+    //Üstteki kodda isset ile kontrolümüzü yaptırdık.Zaman diye bir sessionum varsa  ve şuanki zamandan bunun değeri küçükse sonlandırdım 
+
+    //Önceki dersimizdeki giris.php altında else içine bu kodu yazıyoruz.Alttaki 10 saniye hiçbir şey yapmadan durar isek sitede oturum sonlandı demek.
+
+    $_SESSION['zaman'] = time() + 10;
+    $_SESSION['kullanici_adi'] = $uye['kullanici_adi'];
+    //header()
+    header('Location:');
+
+?>
+oturum_sonlandi.php
+
+Üzgünüz, uzun süre işlem yapmadığınız için oturumunuz sonlandı. 
+<a href="index.php">Tekrar Giriş Yapınız</a>
+```
+## Cookie ve Session'larda Dizi(Array) Depolamak
+```
+php-session-cookie.php
+<?php 
+
+session_start();
+
+$_SESSION['uye'] = [
+    'kullanici_adi' => 'yigithan',
+    'sifre' => '123'    
+
+];
+
+print_r($_SESSION);
+
+setcookie('uye[id], 1, time() + 86400);
+setcookie('uye[kullanici_adi]', 'yigithan', time() + 86400);
+setcookie('uye[sifre]', '123', time() + 86400);
+print_r($_COOKIE);
+
+```
+# PHP'De Dosya Yükleme
+## Örnek Formun Oluşturulması
