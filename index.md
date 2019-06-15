@@ -2081,7 +2081,7 @@ oturum_sonlandi.php
 <a href="index.php">Tekrar Giriş Yapınız</a>
 ```
 <h2>Cookie ve Session'larda Dizi(Array) Depolamak</h2>
-```
+
 php-session-cookie.php
 <?php 
 
