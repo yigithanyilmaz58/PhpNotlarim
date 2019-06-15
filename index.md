@@ -2050,9 +2050,9 @@ $uye = [
 ?>
 ```
 
-## Zaman Ayarlı Session Örneği
+<h2>Zaman Ayarlı Session Örneği</h2>
 
-Bu kodların hepsi önceki giriş oturumuyla bağlantılıdır.
+Bu kodların hepsi önceki giriş oturumuyla bağlantılıdırr.
 
 
 php-cookie.php
