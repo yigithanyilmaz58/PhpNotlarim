@@ -2136,3 +2136,38 @@ if($_FILES['dosya']['error'] == 4){
 <h2>PHP İle Dosya Yükleme</h2>
 
 
+
+if($_FILES['dosya']['error'] == 4){
+    echo 'Lütfen dosyanızı seçin.';
+} else {
+    print_r($_FILES['dosya']);
+    if(is_uploaded_file($_FILES['dosya']['tmp_name])){
+    
+       $gecerli_dosya_uzantilari = [
+        'image/jpeg',
+         'image/png',     Buraya hangi dosyaların yüklenmesine izin veriyorsak onları koyuyoruzç.
+          'image/gif'     Ya karşıdaki kişi txt dosyasına backdoor koyarsa biz de onu indirdik.GG
+      ];
+   
+   $gecerli_dosya_boyutu
+   
+   $dosya_uzantisi = $_FILES['dosya']['type'];
+   
+   if(in_array($dosya_uzantisi, $gecerli_dosya_uzantilari)){
+   
+   } else {
+      echo 'Dosya sadece jpg.png yada gif formatında olabilir';
+   }
+   
+   } else {
+      echo 'Dosya yüklenirken bir sorun oluştu.';
+   }
+   
+}
+
+?>
+
+mime_content_type('dosyadınızıneyse.php'); 
+mime content dosyalarınızın mime'inin ne olduğunu yazdırır.
+
+
