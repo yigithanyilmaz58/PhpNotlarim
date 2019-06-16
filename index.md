@@ -2149,11 +2149,13 @@ if($_FILES['dosya']['error'] == 4){
           'image/gif'     Ya karşıdaki kişi txt dosyasına backdoor koyarsa biz de onu indirdik.GG
       ];
    
-   $gecerli_dosya_boyutu
+   $gecerli_dosya_boyutu = (1024 * 1014 * 3); Yani maksimum 3 megabaytlık geçerlilik dosyası oldu.
    
    $dosya_uzantisi = $_FILES['dosya']['type'];
    
    if(in_array($dosya_uzantisi, $gecerli_dosya_uzantilari)){
+   
+   
    
    } else {
       echo 'Dosya sadece jpg.png yada gif formatında olabilir';
