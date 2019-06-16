@@ -2155,7 +2155,22 @@ if($_FILES['dosya']['error'] == 4){
    
    if(in_array($dosya_uzantisi, $gecerli_dosya_uzantilari)){
    
-   
+      if($_gecerli_dosya_boyutu >= $_FILES ['dosya']['size']{
+      
+        $yukle = move_uploaded_file($_FILES['dosya']['tmp_name'], 'upload/' . $_FILES ['dosya']['name']); 
+        Upload klasörü altına taşınacak. 
+        
+        if($yukle){
+          echo '<h3>Dosyanız başarıyla yüklendi.</h3>
+          echo '<img src"upload/'.$_FILES ['dosya']['name'].'">';
+        } else {
+          echo 'Bir sorun oluştu ve dosyanız yüklenemedi.';
+        }
+        
+        Upload klasörü altına taşınacak. 
+      
+      else echo 'Yükleyeceğiniz dosya en az 3MB olabilir';
+      }
    
    } else {
       echo 'Dosya sadece jpg.png yada gif formatında olabilir';
