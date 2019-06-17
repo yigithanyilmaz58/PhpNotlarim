@@ -2050,6 +2050,7 @@ $uye = [
 ?>
 ```
 
+
 <h2>Zaman Ayarlı Session Örneği</h2>
 
 Bu kodların hepsi önceki giriş oturumuyla bağlantılıdırr.
@@ -2148,6 +2149,7 @@ if($_FILES['dosya']['error'] == 4){
          'image/png',     Buraya hangi dosyaların yüklenmesine izin veriyorsak onları koyuyoruzç.
           'image/gif'     Ya karşıdaki kişi txt dosyasına backdoor koyarsa biz de onu indirdik.GG
       ];
+      
    
    $gecerli_dosya_boyutu = (1024 * 1014 * 3); Yani maksimum 3 megabaytlık geçerlilik dosyası oldu.
    
@@ -2155,6 +2157,7 @@ if($_FILES['dosya']['error'] == 4){
    
    if(in_array($dosya_uzantisi, $gecerli_dosya_uzantilari)){
    
+      
       if($_gecerli_dosya_boyutu >= $_FILES ['dosya']['size']{
       
         $yukle = move_uploaded_file($_FILES['dosya']['tmp_name'], 'upload/' . $_FILES ['dosya']['name']); 
@@ -2179,7 +2182,7 @@ if($_FILES['dosya']['error'] == 4){
    } else {
       echo 'Dosya yüklenirken bir sorun oluştu.';
    }
-   
+  
 }
 
 ?>
@@ -2350,3 +2353,6 @@ Burda tek yaptığımız her seferinde foreache elemanları sokmaktı.Neden, ç�
 # MYSQL
 
 ## SQL ve MYSQL Nedir ?Farkları Nelerdir?
+
+BUNDAN SONRAKİ TÜM NOTLARI index2.md dosyası içine koyacağım bu not bozuk, düzelmiyor da.
+
