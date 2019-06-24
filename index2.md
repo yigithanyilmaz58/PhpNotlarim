@@ -15,3 +15,30 @@
 
 
 <img src="sqlmysql3.png">
+
+## Veritabanı (DATABASE) Oluşturmak / Silmek / Listelemek / Seçmek
+
+```
+2 şekilde veritabanı oluşturabiliriz .İkisini de söyleyeyim hemen alt satırlarda.
+
+İlk olarak Mysql Workbench yada SqlPro gibi herhangi bir mysql programı indirmemiz lazım birçok alternatifi var bunun.
+
+İlk olarak phpmyadminde SQL bölümüne girip # CREATE DATABASE test_veritabanı; diyoruz ve veritabanımız oluştu.
+
+Bu arada herhangi farklı bir başlığın altında yazmayı da öğreteceğim.Sonra ama.
+
+Silmek için de CREATE yazdığımız yere DROP yazıyoruz ve veritabanımız siliniyor.
+
+İkinci yolumuz ise terminalden oluyor hemen alta kodları koyuyorum.
+
+cd /Applications/MAMP yada LAMP/Library/Bin 
+
+./mysql -u root -p 
+
+Üstte yazdığımız kodları aynı şekilde yazarsak burda da işe yarıyor.
+
+SHOW DATABASES; der isek tüm veritabanlarımız sıralanıyor.
+
+USE herhangibir_veritabanı; der isek bundan sonra yaptığımız tüm işlemler bu veritabanı üstünde yapılacak.
+
+
