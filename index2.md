@@ -41,4 +41,31 @@ SHOW DATABASES; der isek tüm veritabanlarımız sıralanıyor.
 
 USE herhangibir_veritabanı; der isek bundan sonra yaptığımız tüm işlemler bu veritabanı üstünde yapılacak.
 
+```
 
+Tablo (TABLE) Oluşturmak / Listelemek / Silmek
+
+```
+
+CREATE TABLE uyeler(
+  test int
+); Yazar isek tablomuz geliyor.test int'i yazmazsak hata alırız.
+
+RENAME TABLE uyeler to users; Der isek tablomuzun adını değiştiririz.
+
+DROP TABLE users; 
+```
+
+Sütun (COLUMN) Oluşturmak / Listelemek / Silmek
+
+```
+Sütun oluşturmak için tablo altında işlem yapmamız gerekiyor o yüzden alttaki kodlara iyi dikkat edin.
+
+ALTER TABLE uyeler ADD COLUMN uye_id int
+
+Bunun gibi başka bir örnek daha verelim.
+
+ALTER TABLE uyeler ADD COLUMN (
+    uye_adi varchar(255)
+    uye_eposta varchar(255)
+);
