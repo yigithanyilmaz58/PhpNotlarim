@@ -1,4 +1,4 @@
-# MYSQL
+ # MYSQL
 ## SQL ve MySQL Nedir? Farkları Nelerdir?
 <img src="sqlmysql.png">
 
@@ -43,7 +43,7 @@ USE herhangibir_veritabanı; der isek bundan sonra yaptığımız tüm işlemler
 
 ```
 
-Tablo (TABLE) Oluşturmak / Listelemek / Silmek
+## Tablo (TABLE) Oluşturmak / Listelemek / Silmek
 
 ```
 
@@ -56,7 +56,7 @@ RENAME TABLE uyeler to users; Der isek tablomuzun adını değiştiririz.
 DROP TABLE users; 
 ```
 
-Sütun (COLUMN) Oluşturmak / Listelemek / Silmek
+## Sütun (COLUMN) Oluşturmak / Listelemek / Silmek
 
 ```
 Sütun oluşturmak için tablo altında işlem yapmamız gerekiyor o yüzden alttaki kodlara iyi dikkat edin.
@@ -69,3 +69,105 @@ ALTER TABLE uyeler ADD COLUMN (
     uye_adi varchar(255)
     uye_eposta varchar(255)
 );
+
+ALTER TABLE uyeler ADD uye_sifre VARCHAR(255)
+AFTER uye_adi  --> Der isek uye_adi 'ndan sonra uye_sifre'yi ekleyecektir. 
+
+ALTER TABLE uyeler ADD uye_sifre VARCHAR(255)
+FIRST der isek uye_sifre adlı sütunumuz uyeler adlı tablomuzda en başa gelecektir.
+
+ALTER TABLE uyeler DROP COLUMN test2; Dediğimiz zaman uyeler tablosundaki test2 sütununu siliyor. 
+
+Eğer bir sütunumuzun adını değiştirecek isek ; 
+
+ALTER TABLE uyeler CHANGE uye_adi uye_kadi 
+varchar(255) --> Bu arada varchar 255i yazmak isek hata alırız çünkü veri tipimizin ne olduğunu belirtmemiz lazım.
+```
+
+## PRIMARY KEY ve AUTO INCREMENT Kolonlar
+
+```
+Primary Key Nedir ? 
+Bu arada vereceğim bilgileri alttaki kodları göz önünde bulundurarak ele almanızı istiyorum.
+
+Türkçe'de birincil anahtar demektir.
+
+Mesela ben ad kolonumu primary key olarak belirtir isem bunun anlamı ad kolonuma her satırda bir değer gelebilir demektir.
+Ve bir defa kodda kullanılabilir adı üstünde birincil anahtar.
+Hemen bir primary key oluşturalım.
+
+CREATE TABLE uyeler (
+  ad varchar(255),
+  soyad varchar(255),
+  PRIMARY KEY (ad)
+);
+
+Bir tane daha eklenme şeklini göstereyim.
+
+CREATE TABLE uyeler (
+  ad varchar(255),
+  soyad varchar(255),
+);
+
+ALTER TABLE uyeler ADD PRIMARY KEY (ad);
+
+Şimdi biz ad kolonumuza gelip içine 
+Yiğithan Yılmaz yazdıktan sonra
+Yiğithan Karaca yazamayız çünkü adı üstünde birincil anahtar hata alırız değerimizin hep aynı olması lazım.
+
+Şimdi de AUTO INCREMENT'E geçelim.
+AUTO INCREMENT Nedir?
+Bir kolon auto increment olarak belirlendiğinde onun içindeki değerler otomatik olarak artışa geçer yani yen bir üye eklendiğinde atıyorum üyemizin id'si 1'den başlar 1 , 2, ,3 ,4 ,5 diye gidiyor.Hemen alta bir örnek yazalım.
+
+CREATE TABLE uyeler (
+  id int AUTO_INCREMENT,
+  ad varchar(255),
+  soyad varchar(255),
+  PRIMARY KEY (id)
+);
+
+uye soyad kolonuna mesela ad soyad yazdık hemen önüne 1 2 diye kolonlarımız geliyor yani sıralanıyor.
+
+1 Yiğithan Yılmaz
+2 Test  Çikolata diye gider.
+```
+
+##  Tablo ve Sütunları Detaylı Listelemek
+
+```
+uyeler diye bir tablomuz vardı.İsterseniz önce tablonun altındaki sütunlara nasıl erişiyoruz.4 yolu var hemen alta koyuyorum.
+
+EXPLAIN uyeler;
+
+DESCRIBE uyeler;
+
+SHOW FIELDS FROM uyeler;
+
+SHOW COLUMNS FROM uyeler;
+
+SHOW TABLES; --> tabloları gösterir.
+
+Eğer başka bir veritabanındaki tabloları listelemek istersem ;
+
+SHOW TABLES IN ecommerce;
+
+3 tane değişmeyen tablomuz var 
+information_schema
+mysql
+performation_schema
+
+information_schema bize birçok bilgi sağlıyor ve birçok bilgi burada tutuluyor.Şimdiki dersimiz veri çekme değil ama burda basit bir şekilde yapalım.
+
+SELECT * FROM information_schema.TABLES
+WHERE TABLE_SCHEMA = 'udemy_test'
+
+SELECT tümünü seç diyorum FROM nerden hangi tablonun tümünü seçicem  information_schema veritabanın altındaki TABLES tablosundan tümünü seç WHERE hangi koşul ile seçicem TABLE_SCHEMA 'i udemy_test e eşit olanları seçiyor.
+ ```
+ 
+ ## MYSQL VERİ TÜRLERİ
+ 
+```
+                          Metinsel (String) Veri Türleri
+
+
+```
