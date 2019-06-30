@@ -166,8 +166,7 @@ SELECT tümünü seç diyorum FROM nerden hangi tablonun tümünü seçicem  inf
  
  ## MYSQL VERİ TÜRLERİ
  
-```
-                          Metinsel (String) Veri Türleri
 
+### Metinsel (String) Veri Türleri
 
-```
+<img src="string.png>
