@@ -169,4 +169,5 @@ SELECT tümünü seç diyorum FROM nerden hangi tablonun tümünü seçicem  inf
 
 ### Metinsel (String) Veri Türleri
 
-<img src="string.png>
+<img src="string.png">
+
