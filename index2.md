@@ -171,3 +171,6 @@ SELECT tümünü seç diyorum FROM nerden hangi tablonun tümünü seçicem  inf
 
 <img src="string.png">
 
+VARCHAR ise sakladığımız alan kadar veri kaplar.Mesela varchar 4000 dedik ama 200 satırlık yer kapladı mantığı anlamışsınızdır.
+
+<img src="string2.png">
