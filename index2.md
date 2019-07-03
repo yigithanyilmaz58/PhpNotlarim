@@ -181,6 +181,8 @@ VARCHAR ise sakladığımız alan kadar veri kaplar.Mesela varchar 4000 dedik am
 
 <img src="string5.png">
 
+### Sayısal (Numeric) Veri Türleri
+
 <img src="string6.png">
 
 <img src="string7.png">
@@ -203,3 +205,4 @@ VARCHAR ise sakladığımız alan kadar veri kaplar.Mesela varchar 4000 dedik am
 
 <img src="string16.png">
 
+## MySQL Rezerve Edilmiş Kelimelerin Kullanımı
