@@ -206,3 +206,58 @@ VARCHAR ise sakladığımız alan kadar veri kaplar.Mesela varchar 4000 dedik am
 <img src="string16.png">
 
 ## MySQL Rezerve Edilmiş Kelimelerin Kullanımı
+
+## Veri Ekleme (INSERT) İşlemi
+
+INSERT INTO uyeler SET 
+uye_kadi = 'tayfunerbilen',
+uye_sifre = '123,
+uye_eposta = 'tayfunerbilen@gmail.com' dedik ve uyeler tablomuza bunları ekledik. 
+
+## Veri Çekme (SELECT) İşlemi
+
+SELECT * FROM uyeler 
+Üstteki yıldız tamamını çek demek yanı uyelerdeki bütün kolonlar ve bütün satırlarımla birlikte çekiliyor demek.
+
+SELECT uye_kadi, uye_sifre FROM uyeler 
+Bu da uye_kadi ve uye_sifreyi sadece çek demek 
+
+SELECT uye_kadi as kadi, uye_sifre as sifre FROM uyeler 
+Kolonun adı değişti ve aynı şekilde veriyi çektik
+
+## VERİ GÜNCELLEME (UPDATE) İşlemi 
+idsi 8 olan test2 adındaki kullanıcımın mesela  yigithanla değiştirmek istiyorum mesela  
+
+UPDATE uyeler SET
+uye_kadi = 'yigithan'
+WHERE uye_id = 8 
+
+Eğer WHERE uye_id = 8 diye yazdığım kodu yazmasaydım tüm kullanıcı adları yigithan olacaktı biz burda id'yi belirttik.
+
+## VERİ SİLME (DELETE) İşlemi 
+
+DELETE FROM uyeler 
+WHERE uye_id = 8
+
+## WHERE Cümleciği 
+SELECT * FROM uyeler
+WHERE uye_id = 7
+idsi 7 olan veritabanını çekecek.
+
+SELECT * FROM uyeler 
+WHERE uye_sifre = 'yenişifre'
+Burda da uye şifresi yeni şifre olan kullanıcıyı çekecek.
+
+## Verilerde Sıralama (ORDER BY)
+Verilerimizi büyükten küçüğe yada başka bir filtreye göre sıralamak istiyor isek ORDER BY  kodumuzu kullanıyoruz.
+
+SELECT * FROM bolumler 
+Böyle der isek id'si diğer şeyleri karışık bir şekilde gelecek.Ama alttaki şekide kullanırsak bir filtreye göre gelecek.
+
+SELECT * FROM bolumler
+ORDER BY id DESC (büyükten küçüğe) (ASC küçükten büyüğe)
+
+SELECT * FROM bolumler
+ORDER BY bolum_sezon, bolum_no DESC
+
+## Verilerde Limit (LIMIT)
