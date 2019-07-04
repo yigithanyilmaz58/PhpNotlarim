@@ -261,3 +261,24 @@ SELECT * FROM bolumler
 ORDER BY bolum_sezon, bolum_no DESC
 
 ## Verilerde Limit (LIMIT)
+
+SELECT * FROM uyeler
+ORDER BY uye_id (DESC büyüktenküçüğe) (ASC küç. büy.)
+
+## Verilerde Gruplama (GROUP BY) ve HAVING Kullanımı
+SELECT * FROM calisanlar
+GROUP BY sehir
+
+## Verilerde Arama (LIKE)
+SELECT * FROM calisanlar
+WHERE ad LIKE '%n'  sonu n ile biten ad kolonundaki şeyleri sıralayacak eüer y%n olsaydı y ile başlayıp n ile bitenler olacaktı.
+
+## Verilerde Arama (IN)
+SELECT * FROM calisanlar
+WHERE id = 5 || id = 6 || id = 7
+Bu kodun kısa hali IN ile kullanılmışını hemen alta koyuyorum.
+
+SELECT * FROM calisanlar
+WHERE id  IN (5,6,7)
+
+## Verilerde Arama (FIND_IN_SET)
