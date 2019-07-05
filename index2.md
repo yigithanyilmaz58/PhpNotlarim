@@ -282,3 +282,19 @@ SELECT * FROM calisanlar
 WHERE id  IN (5,6,7)
 
 ## Verilerde Arama (FIND_IN_SET)
+Find in set bir string listesinde kelime aramamızı sağlıyor.
+
+## Bir .SQL Dosyasını Sunucuya Yüklemek
+
+CREATE DATABASE db_test;
+USE db_test;
+CREATE TABLE table_test (
+ id int(11) not null auto_increment,
+ name varchar(255),
+ primary key(id)
+);
+INSERT INTO table_test SET name = 'yigithan', surname = 'yilmaz';
+
+Bu yazdıklarımızda phpmyadminde SQL sayfasında import ediyoruz ve hepsi geliyor.
+
+# PHP'de Veritabanu İşlemleri(PDO)
