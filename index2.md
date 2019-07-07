@@ -297,4 +297,9 @@ INSERT INTO table_test SET name = 'yigithan', surname = 'yilmaz';
 
 Bu yazdıklarımızda phpmyadminde SQL sayfasında import ediyoruz ve hepsi geliyor.
 
-# PHP'de Veritabanu İşlemleri(PDO)
+Kaynak Linki : http://alpsonmez.com/dersler-ornek-124-php_mysql_veritabanindan_kayit_cekmek_select_komutu
+Herhangi bir sitede paylaşım yapılacaksa izinsiz yapıldığı için hukuki dava açacağımı tarafınıza arz ederim.
+
+# PHP'de Veritabanı İşlemleri(PDO)
+
+
